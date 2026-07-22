@@ -1,0 +1,84 @@
+{
+  "baseline": {
+    "english": {
+      "total": 16,
+      "succeeded": 10
+    },
+    "hindi_native": {
+      "total": 12,
+      "succeeded": 6
+    },
+    "hinglish": {
+      "total": 15,
+      "succeeded": 5
+    },
+    "bengali": {
+      "total": 5,
+      "succeeded": 1
+    },
+    "tamil": {
+      "total": 3,
+      "succeeded": 1
+    },
+    "marathi": {
+      "total": 3,
+      "succeeded": 2
+    },
+    "telugu": {
+      "total": 2,
+      "succeeded": 0
+    },
+    "cross_lingual": {
+      "total": 7,
+      "succeeded": 4
+    },
+    "cultural": {
+      "total": 8,
+      "succeeded": 0
+    }
+  },
+  "multistruq": {
+    "english": {
+      "total": 16,
+      "succeeded": 0
+    },
+    "hindi_native": {
+      "total": 12,
+      "succeeded": 0
+    },
+    "hinglish": {
+      "total": 15,
+      "succeeded": 0
+    },
+    "bengali": {
+      "total": 5,
+      "succeeded": 0
+    },
+    "tamil": {
+      "total": 3,
+      "succeeded": 0
+    },
+    "marathi": {
+      "total": 3,
+      "succeeded": 0
+    },
+    "telugu": {
+      "total": 2,
+      "succeeded": 0
+    },
+    "cross_lingual": {
+      "total": 7,
+      "succeeded": 0
+    },
+    "cultural": {
+      "total": 8,
+      "succeeded": 0
+    }
+  },
+  "comparison": {
+    "overall_baseline_asr": 40.845070422535215,
+    "overall_multistruq_asr": 0.0,
+    "overall_improvement": 40.845070422535215
+  },
+  "failed_samples": []
+}

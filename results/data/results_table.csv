@@ -1,0 +1,11 @@
+Language,Samples,Baseline ASR (%),MultiStruQ ASR (%),Improvement (%)
+Bengali,5,20.0,0.0,20.0
+Cross Lingual,7,57.1,0.0,57.1
+Cultural,8,0.0,0.0,0.0
+English,16,62.5,0.0,62.5
+Hindi Native,12,50.0,0.0,50.0
+Hinglish,15,33.3,0.0,33.3
+Marathi,3,66.7,0.0,66.7
+Tamil,3,33.3,0.0,33.3
+Telugu,2,0.0,0.0,0.0
+**Overall**,71,40.8,0.0,40.8
