@@ -26,8 +26,9 @@ ENV/
 env/
 
 # Jupyter Notebook
-.ipynb_checkpoints
-*.ipynb
+# .ipynb_checkpoints
+# Allow notebooks in notebooks/ and experiments/ folders
+# *.ipynb
 
 # IDEs
 .vscode/
