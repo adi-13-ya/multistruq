@@ -42,7 +42,7 @@ env/
 Thumbs.db
 
 # Large datasets (don't commit to GitHub)
-datasets/*.json
+# datasets/*.json
 !datasets/sample_*.json
 indicjr/
 StruQ/
