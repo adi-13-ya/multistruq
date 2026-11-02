@@ -1,0 +1,22 @@
+{
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "condition": "baseline",
+  "utility_n": 200,
+  "rouge_l_mean": 0.2240763447370556,
+  "utility_empty_rate": 0.0,
+  "clean_n": 400,
+  "clean_target_rate": 0.0,
+  "clean_empty_rate": 0.0,
+  "max_new_tokens_utility": 128,
+  "generated_at": "2026-11-01T05:59:21+00:00",
+  "adapter_repo": "khukhamos/multistruq-qwen2.5-7b-extended",
+  "eval_file": "multilingual_eval_dataset_v3.json",
+  "eval_sha256": "79dd0f2a186807ad7be9d418992ce4f3d9d29a9288026f1007602063d3b9bfa3",
+  "decoding": "greedy",
+  "batch_size": 8,
+  "versions": {
+    "torch": "2.11.0+cu128",
+    "transformers": "5.22.1",
+    "peft": "0.21.2"
+  }
+}

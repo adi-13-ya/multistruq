@@ -25,10 +25,8 @@ venv/
 ENV/
 env/
 
-# Jupyter Notebook
-# .ipynb_checkpoints
-# Allow notebooks in notebooks/ and experiments/ folders
-# *.ipynb
+# Jupyter
+.ipynb_checkpoints/
 
 # IDEs
 .vscode/
@@ -46,6 +44,8 @@ Thumbs.db
 !datasets/sample_*.json
 indicjr/
 StruQ/
+manuscripts/
+form-b-eval/
 
 # Model checkpoints
 models/
@@ -55,9 +55,11 @@ checkpoints/
 *.bin
 *.safetensors
 
-# Results (keep only summary files)
-results/*.png
-results/*.json
+# Generated outputs (regenerate with analysis/summarize_extended.py and the notebooks)
+analysis/output_extended/
+*-checkpoints/
+*-adapter/
+*_extended.zip
 
 # Logs
 *.log

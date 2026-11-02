@@ -1,0 +1,1202 @@
+[
+  {
+    "id": "alpaca_6949",
+    "instruction": "Given the sentence, explain in one sentence why the underlying sentiment of the sentence is negative.",
+    "input": "I am sick and tired of my job.",
+    "reference": "The underlying sentiment of the sentence is negative because it expresses a feeling of deep distress and frustration towards the job."
+  },
+  {
+    "id": "alpaca_7132",
+    "instruction": "Create a list of open ended questions asked in a job interview related to the given skill.",
+    "input": "Negotiation skills",
+    "reference": "- How have you managed difficult negotiations in the past?\n- What strategies do you use to reach mutually beneficial agreements?\n- Describe a time when you had to persuade someone to make a deal.\n- How do you handle objections during a negotiation?\n- How have you leveraged technology to improve your negotiation skills?\n- What methods do you use to break an impasse?\n- What strategies have you used to handle a situation when there is a clear power imbalance during a negotiation?"
+  },
+  {
+    "id": "alpaca_7578",
+    "instruction": "Edit the following sentence to create a more vivid scene.",
+    "input": "The wind was blowing in the park",
+    "reference": "The chill winter wind swept through the park, rustling the bare trees and sending shivers down the spines of the few brave souls who ventured outside."
+  },
+  {
+    "id": "alpaca_7623",
+    "instruction": "Provide an evaluation of the given painting",
+    "input": "Artwork: Monet's \"Water Lilies\"",
+    "reference": "Monet's \"Water Lily\" is an exquisite piece of art filled with beautiful colors and peaceful imagery. The artist captures the tranquility of the water lilies and their reflection in the lake with a masterful use of brushstrokes and light. The scene conveys a sense of calm and serenity that is sure to bring a sense of peace and contentment to all who view it."
+  },
+  {
+    "id": "alpaca_7718",
+    "instruction": "Convert the time from 12 hr format to 24 hr format.",
+    "input": "4:35 PM",
+    "reference": "16:35"
+  },
+  {
+    "id": "alpaca_7872",
+    "instruction": "Find the remaining sides of a right triangle using Pythagoras' theorem.",
+    "input": "The length of one side is 5cm.",
+    "reference": "Using Pythagoras' Theorem, the length of the other side is sqrt(25-25) = 4cm and the hypotenuse is sqrt(25+25) = 5.83cm."
+  },
+  {
+    "id": "alpaca_7882",
+    "instruction": "Find the 6th term of the following sequence.",
+    "input": "3, 6, 10, 15...",
+    "reference": "21"
+  },
+  {
+    "id": "alpaca_8467",
+    "instruction": "Name the different emotions inferred from the sentence.",
+    "input": "He was so angry that he slammed the door.",
+    "reference": "Anger."
+  },
+  {
+    "id": "alpaca_8574",
+    "instruction": "Rewrite this sentence without changing its meaning.",
+    "input": "The teacher asked the students to hand in their essays.",
+    "reference": "The teacher requested that the students submit their essays."
+  },
+  {
+    "id": "alpaca_8664",
+    "instruction": "Choose a descriptive word for the following",
+    "input": "A summer day",
+    "reference": "A summer day is balmy."
+  },
+  {
+    "id": "alpaca_8999",
+    "instruction": "Change the following sentence to the first person.",
+    "input": "Mark completed the report.",
+    "reference": "I have completed the report."
+  },
+  {
+    "id": "alpaca_9351",
+    "instruction": "Categorize the following needs as either physiological needs or safety needs.",
+    "input": "Food, Security, Love",
+    "reference": "Food: Physiological Need\nSecurity: Safety Need\nLove: Safety Need"
+  },
+  {
+    "id": "alpaca_9514",
+    "instruction": "Write a two-sentence description of the company.",
+    "input": "Company: Formulator Toys",
+    "reference": "Formulator Toys is a toy company that specializes in developing educational toys to help children learn and explore in fun and creative ways. Through interactive and hands-on play, Formulator Toys make learning enjoyable and encourages exploration, creativity and critical thinking skills."
+  },
+  {
+    "id": "alpaca_9735",
+    "instruction": "Extrapolate on the given statement by giving two examples.",
+    "input": "Instant messaging has greatly improved collaboration among workers",
+    "reference": "For example, business teams can hold virtual conferences, meet online to solve difficult problems, and share files without spending money on travel costs. Also, employees can quickly ask questions and get answers from their colleagues, saving time and effort instead of having to wait for emails or phone calls."
+  },
+  {
+    "id": "alpaca_9810",
+    "instruction": "Rewrite the sentence to correct the capitalization errors.",
+    "input": "The capital of australia is canberra.",
+    "reference": "The capital of Australia is Canberra."
+  },
+  {
+    "id": "alpaca_10144",
+    "instruction": "Calculate the area of a square given its length in cm.",
+    "input": "12 cm",
+    "reference": "144 cm^2"
+  },
+  {
+    "id": "alpaca_10202",
+    "instruction": "Edit the following sentence by adding an appropriate modifier. Output the entire sentence.",
+    "input": "He walked to the bus stop.",
+    "reference": "He hurriedly walked to the bus stop."
+  },
+  {
+    "id": "alpaca_10510",
+    "instruction": "In two sentences, describe a hypothetical situation in which the given item is used",
+    "input": "Laser",
+    "reference": "In a science fiction setting, a laser could be used to cut through a thick metal wall to enter a hidden room. Alternatively, in a medical setting, a laser could be used for a precise surgical procedure to reduce risk and improve the patient's healing process."
+  },
+  {
+    "id": "alpaca_10678",
+    "instruction": "Provide one example of a use case for the given technology.",
+    "input": "Robotics",
+    "reference": "One example of a use case for robotics is in healthcare, where robots can be used to assist in delicate surgeries, as well as to perform repetitive tasks such as cleaning and disinfecting medical instruments."
+  },
+  {
+    "id": "alpaca_10734",
+    "instruction": "Calculate the real roots of the polynomial equation.",
+    "input": "x^2 + x – 6 = 0",
+    "reference": "The real roots of the polynomial equation are -2 and 3."
+  },
+  {
+    "id": "alpaca_10774",
+    "instruction": "Parse the given text to extract a list of all the nouns.",
+    "input": "The teacher asked the students to do their homework carefully.",
+    "reference": "[teacher, students, homework]"
+  },
+  {
+    "id": "alpaca_10906",
+    "instruction": "Describe in an interesting way why people like a particular type of food.",
+    "input": "Pizza",
+    "reference": "People love pizza because of its delicious mix of savory flavors, crispy crust, and the ability to customize it to fit your individual tastes. It appeals to a variety of different palates and can be enjoyed both warm and cold."
+  },
+  {
+    "id": "alpaca_11150",
+    "instruction": "Rewrite the given statement in the negative form",
+    "input": "He always smiles",
+    "reference": "He never frowns."
+  },
+  {
+    "id": "alpaca_11239",
+    "instruction": "Edit the given sentences to make them more concise.",
+    "input": "The book was interesting and it was also educational.",
+    "reference": "The book was interesting and educational."
+  },
+  {
+    "id": "alpaca_11246",
+    "instruction": "Find a movie that meets the given criteria",
+    "input": "Genre: Comedy,\nRating: PG",
+    "reference": "The Lego Movie (2014) is a PG rated comedy film that follows an ordinary Lego minifigure as he joins a quest to stop an evil tyrant from destroying the Lego universe. The film features an all-star cast, including Chris Pratt, Will Ferrell, Elizabeth Banks, and Morgan Freeman."
+  },
+  {
+    "id": "alpaca_11603",
+    "instruction": "Change this imperative sentence into a declarative sentence.",
+    "input": "Find the source of the issue.",
+    "reference": "The source of the issue needs to be found."
+  },
+  {
+    "id": "alpaca_11674",
+    "instruction": "Explain why a specified action would not be a good idea.",
+    "input": "Leaving a newborn baby unattended",
+    "reference": "Leaving a newborn baby unattended is not a good idea because babies need constant supervision and care. Under no circumstances should a baby be left alone, even for a few minutes, since they may be vulnerable to danger or in need of basic necessities such as food and comforting."
+  },
+  {
+    "id": "alpaca_11839",
+    "instruction": "Construct a mathematical equation to calculate the speed of an object given the distance and the time taken.",
+    "input": "Distance = 100 meters; Time = 50 seconds",
+    "reference": "The speed of the object can be calculated as: speed = distance / time = 100 meters / 50 seconds = 2 m/s."
+  },
+  {
+    "id": "alpaca_12338",
+    "instruction": "Generate a creative headline that summarizes the given paragraph.",
+    "input": "Airbnb is an online community marketplace that connects people seeking short-term rental accommodations with hosts who rent out their room, house, or apartment. Airbnb enables homeowners to make money and travelers to benefit from budget-friendly accommodations.",
+    "reference": "Unlock Affordable & Exciting Accommodations with Airbnb!"
+  },
+  {
+    "id": "alpaca_13050",
+    "instruction": "Given a photo, detect the different objects in the photo and label each object.",
+    "input": "Attach the photo",
+    "reference": "The photo contains a person, a chair, a table, and a laptop."
+  },
+  {
+    "id": "alpaca_13134",
+    "instruction": "Divide this text into two subsections.",
+    "input": "We live in a world where data is increasingly being used to inform decisions, from healthcare to finance. Big data is transforming our lives in ways that were unimaginable before, and it is having an ever-growing impact on our lives.",
+    "reference": "Subsection 1: We live in a world where data is increasingly being used to inform decisions, from healthcare to finance.\n\nSubsection 2: Big data is transforming our lives in ways that were unimaginable before, and it is having an ever-growing impact on our lives."
+  },
+  {
+    "id": "alpaca_13136",
+    "instruction": "Create a subtraction sentence with these two numbers.",
+    "input": "3, 7",
+    "reference": "7 minus 3 is 4."
+  },
+  {
+    "id": "alpaca_13335",
+    "instruction": "Rewrite this phrase: \"Good luck and god bless you.\"",
+    "input": "Good luck and god bless you.",
+    "reference": "Wishing you luck and divine blessings."
+  },
+  {
+    "id": "alpaca_13766",
+    "instruction": "Categorize the following sentences into Yes/No statements.",
+    "input": "I can get it done before tomorrow.",
+    "reference": "No statement."
+  },
+  {
+    "id": "alpaca_13895",
+    "instruction": "Identify the song given the provided lyrics.",
+    "input": "\"Don't stop takin' money out the ATM\nLookin' at the 'Gram, gettin' mad 'cause a nigga got more bands\nDon't stop, stack it up, yeah, me I'm all in\nMy money long, you can't find the end\"",
+    "reference": "Cardi B - Money."
+  },
+  {
+    "id": "alpaca_14040",
+    "instruction": "Sort the list of items into two groups",
+    "input": "Bananas, apples, broccoli",
+    "reference": "Fruits: Bananas, apples \nVegetables: Broccoli"
+  },
+  {
+    "id": "alpaca_14066",
+    "instruction": "Design a logo for a business that sells organic produce.",
+    "input": "OrganicsInc",
+    "reference": "A green, stylized, leaf logo with the words \"OrganicsInc\" written in an italic font in the center."
+  },
+  {
+    "id": "alpaca_14160",
+    "instruction": "Translate the following phrase into a series of emojis.",
+    "input": "Dance all night",
+    "reference": "💃🏻🌃🕺🏼"
+  },
+  {
+    "id": "alpaca_14176",
+    "instruction": "Explain the significance of the text in the input field",
+    "input": "The number of people relying on government aid has risen considerably due to the pandemic.",
+    "reference": "This shows the far-reaching economic impacts of the COVID-19 crisis, as more individuals are now turning to the government for financial assistance to meet their basic needs. It also highlights the large-scale unemployment and financial distress experienced by many as a result of this pandemic."
+  },
+  {
+    "id": "alpaca_14475",
+    "instruction": "Add two sentences your post to make it more interesting.",
+    "input": "I had a great day at the beach yesterday.",
+    "reference": "Yesterday was my first time seeing the ocean! It was awesome to just walk along the beach, feeling the sand burry my toes with each step and watching the waves crash against the shore. I also enjoyed swimming in the crystal blue waters, feeling so peaceful and relaxed."
+  },
+  {
+    "id": "alpaca_15427",
+    "instruction": "Generate an interesting fact about a given topic.",
+    "input": "Elephants",
+    "reference": "Elephants have the longest gestation period of any mammal, at nearly two years."
+  },
+  {
+    "id": "alpaca_15671",
+    "instruction": "Use a tool to extract the following information from the article",
+    "input": "Article: \n\nA new study has found that the combination of exercise and a healthy diet can reduce the risk of stroke in people over the age of 50 by up to 30%.\n\nInformation to extract: Facts about the study",
+    "reference": "The study was conducted in Denmark with 3,042 participants aged 50 years or older. It found that a combination of exercise and a healthy diet can reduce the risk of stroke by up to 30%. Additionally, the study found that the participants who exercised five or more times per week had an even greater risk reduction of up to 38%."
+  },
+  {
+    "id": "alpaca_16056",
+    "instruction": "Assign the sentence to a category.",
+    "input": "The American bald eagle is an impressive bird of prey.",
+    "reference": "Animals"
+  },
+  {
+    "id": "alpaca_16093",
+    "instruction": "Formulate the argument of the following statement.",
+    "input": "Unregulated animal testing is unethical.",
+    "reference": "Unregulated animal testing is unethical because it involves subjecting animals to inhumane treatment, exposing them to potentially harmful substances, and can lead to inaccurate results with potentially serious consequences when the results are extrapolated to humans."
+  },
+  {
+    "id": "alpaca_16172",
+    "instruction": "Identify the correct meaning of the given phrase",
+    "input": "On the spot",
+    "reference": "On the spot means immediately or without delay."
+  },
+  {
+    "id": "alpaca_16332",
+    "instruction": "Complete the sentence using an appropriate noun.",
+    "input": "He was the best _________ I ever had.",
+    "reference": "He was the best teacher I ever had."
+  },
+  {
+    "id": "alpaca_16486",
+    "instruction": "Summarize the article about artificial intelligence.",
+    "input": "Recently, artificial intelligence (AI) has taken the world, the media, and our businesses by storm, leading to many speculation about the future of AI. AI-driven technologies like machine learning, deep learning, natural language processing, and robotics have all provided greater automation, accuracy, and productivity, enabling businesses to increase their competitive edge in the market.",
+    "reference": "AI is rapidly becoming an integral part of many businesses, leading to increased automation and productivity. AI-driven technologies such as machine learning, deep learning, natural language processing, and robotics have enabled businesses to gain a competitive advantage in the market. AI is being used in many industries, including healthcare, automotive, and finance, making it one of the major technology trends of the decade."
+  },
+  {
+    "id": "alpaca_16509",
+    "instruction": "Find the right category of a given product.",
+    "input": "Product: protein bar",
+    "reference": "The product \"protein bar\" can be classified into the Health & Nutrition category."
+  },
+  {
+    "id": "alpaca_16518",
+    "instruction": "Create a binary classification query which determines whether a given article talks about Covid-19.",
+    "input": "The article discusses the impact of the coronavirus pandemic on the economy.",
+    "reference": "Does the article discuss Covid-19? Yes/No"
+  },
+  {
+    "id": "alpaca_16563",
+    "instruction": "For a given text, find 10 different words that are antonyms of each other.",
+    "input": "The world is filled with hatred and violence.",
+    "reference": "Hatred - Love, Violence - Peace, Filled - Empty, World - Universe, Accompany - Abandon, Poison - Cure, Discontent - Contentment, Desire - Dislike, Shatter - Unite, Create - Destroy."
+  },
+  {
+    "id": "alpaca_16728",
+    "instruction": "Given a mathematical expression, output its simplified form.",
+    "input": "5xy + 3x + 2xy - 7x",
+    "reference": "7xy + 3x"
+  },
+  {
+    "id": "alpaca_16954",
+    "instruction": "Given the facts, answer the question",
+    "input": "Facts:\n- PersonX is a nurse\n- PersonX works at a hospital\n\nQuestion: \nWhere does PersonX work?",
+    "reference": "PersonX works at a hospital."
+  },
+  {
+    "id": "alpaca_17018",
+    "instruction": "Rewrite the sentence to focus on a specific object or person.",
+    "input": "People are listening to music.",
+    "reference": "John is listening to music."
+  },
+  {
+    "id": "alpaca_17197",
+    "instruction": "Develop a plan for launching a new product",
+    "input": "The product is a meal delivery service that offers vegan meals with locally sourced ingredients",
+    "reference": "A plan for launching a new product could involve conducting market research and competitive analysis, creating a product roadmap, setting up a website and marketing channels, developing a pricing structure, creating a customer engagement strategy, producing high-quality product photography and video, setting up partnerships and distribution channels, creating a launch plan and timeline, conducting a beta test, and creating feedback loops and implementation plans."
+  },
+  {
+    "id": "alpaca_17205",
+    "instruction": "Categorize the given article as a news, opinion, cultural or scientific article.",
+    "input": "Recent studies have found that sea levels are rising faster than expected, raising concerns about the future of coastal cities.",
+    "reference": "News"
+  },
+  {
+    "id": "alpaca_17800",
+    "instruction": "Replace the words in brackets with a suitable synonym",
+    "input": "The provision of [generous] incentives motivated many employees to work hard.",
+    "reference": "The provision of bountiful incentives motivated many employees to work hard."
+  },
+  {
+    "id": "alpaca_17819",
+    "instruction": "Come up with two analogies that explain the given topic.",
+    "input": "Time management",
+    "reference": "Time management is like a bank account; if you invest your time wisely, you can reap the benefits later on. Time management is also like an orchestra; if you can properly coordinate the different parts of your life, you can create beautiful harmony."
+  },
+  {
+    "id": "alpaca_17857",
+    "instruction": "Describe the given character's most distinct trait.",
+    "input": "Character: Arthur Weasley",
+    "reference": "Arthur Weasley's most distinct trait is his humility. He is a modest, unassuming man who finds joy in the small things. Despite being a respected and successful wizard, he is incredibly down-to-earth and never fails to show his appreciation for the simplest of luxuries."
+  },
+  {
+    "id": "alpaca_18087",
+    "instruction": "Apply a sentiment analysis to the following phrase.",
+    "input": "\"I am extremely happy about the news.\"",
+    "reference": "Sentiment for the phrase: \"I am extremely happy about the news.\" is positive."
+  },
+  {
+    "id": "alpaca_18572",
+    "instruction": "Categorize the types of the nouns in the sentence.",
+    "input": "John bought a new car and a bike.",
+    "reference": "proper noun: John\ncommon nouns: car, bike"
+  },
+  {
+    "id": "alpaca_18634",
+    "instruction": "Construct a timeline of significant events in a particular field.",
+    "input": "field: American history",
+    "reference": "| Date | Event |\n|------|-------|\n| 1492 | Christopher Columbus discovers America | \n| 1776 | Declaration of Independence is signed | \n| 1789 | US Constitution is ratified | \n| 1861-65 | US Civil War | \n| 1941 | Attack on Pearl Harbor | \n| 1945 | End of World War II | \n| 1954 | Brown v. Board of Education of Topeka | \n| 1963 | Martin Luther King Junior's \"I Have a Dream\" speech | \n| 1969 | Moon Landing | \n| 2001 | 9/11 attacks | \n| 2008 | Election of Barack Obama |"
+  },
+  {
+    "id": "alpaca_18648",
+    "instruction": "Identify if the given sentence is written in past tense.",
+    "input": "The wind is blowing.",
+    "reference": "No, the sentence is not written in past tense."
+  },
+  {
+    "id": "alpaca_18731",
+    "instruction": "Compose a tweet in response to the following endorsement.\nOutput should be lead by a hashtag followed by the text within 280 characters.",
+    "input": "We are proud to endorse Susan for the upcoming election",
+    "reference": "#VoteForSusan Let's elect Susan and make sure the future is bright! Create a better future for the next generation with a leader like Susan. #SusanForLeadership"
+  },
+  {
+    "id": "alpaca_18768",
+    "instruction": "Generate five multiple choice options for the following question.",
+    "input": "What is the capital of Thailand?",
+    "reference": "A. Bangkok \nB. Chiang Mai \nC. Phuket \nD. Chonburi  \nE. Pattaya"
+  },
+  {
+    "id": "alpaca_18870",
+    "instruction": "Make a suggestion to solve the following problem.",
+    "input": "My car won't start.",
+    "reference": "You should check the battery and see if it needs to be replaced."
+  },
+  {
+    "id": "alpaca_19070",
+    "instruction": "Find the main clause of the sentence and provide the phrases that make up the main clause.",
+    "input": "When the rain finally stopped, the sun came out, birds chirped, and people walked out of their homes.",
+    "reference": "Main clause: \"The sun came out, birds chirped, and people walked out of their homes\".\nPhrases: \"the sun came out,\", \"birds chirped,\", \"people walked out of their homes\"."
+  },
+  {
+    "id": "alpaca_19207",
+    "instruction": "Rewrite the following sentence to demonstrate an understanding of the homophone “their.”",
+    "input": "They’re dress was torn and dirty.",
+    "reference": "Their dress was torn and dirty."
+  },
+  {
+    "id": "alpaca_19209",
+    "instruction": "Rewrite the following sentence to indicate the number of items or people.",
+    "input": "Several people were in the store.",
+    "reference": "There were a few people in the store."
+  },
+  {
+    "id": "alpaca_19215",
+    "instruction": "Categorize the following items as either technology, food or sport.",
+    "input": "Laptop, Pizza, Tennis",
+    "reference": "Laptop - Technology, Pizza - Food, Tennis - Sport"
+  },
+  {
+    "id": "alpaca_19680",
+    "instruction": "Annotate the following sentence with its parts of speech.",
+    "input": "I am running late.",
+    "reference": "I - pronoun; am - verb; running - verb; late - adjective"
+  },
+  {
+    "id": "alpaca_19838",
+    "instruction": "Generate a plausible explanation for the given phenomena",
+    "input": "Unexplained lights on Mars",
+    "reference": "The unexplained lights on Mars may be due to a number of different phenomena, such as frozen carbon dioxide crystals reflecting sunlight, a phenomenon known as \"limb brightening,\" dust storms reflecting sunlight differently, or electronic anomalies from the surface of Mars. It is also possible that these lights could be from an intelligent extra-terrestrial life form."
+  },
+  {
+    "id": "alpaca_20951",
+    "instruction": "Summarize these two sentences in one sentence.",
+    "input": "The cat meowed loudly. It ran away when it saw a dog.",
+    "reference": "The cat meowed loudly and ran away when it saw a dog."
+  },
+  {
+    "id": "alpaca_20986",
+    "instruction": "Copy the sentence while change the noun in the sentence.",
+    "input": "He likes to drink coffee.",
+    "reference": "He likes to drink tea."
+  },
+  {
+    "id": "alpaca_21301",
+    "instruction": "Given an input sentence, suggest a creative tagline that fits the context.",
+    "input": "We are a company devoted to sustainable wellness.",
+    "reference": "Choose a healthier future: sustainable wellness with us!"
+  },
+  {
+    "id": "alpaca_21933",
+    "instruction": "Given the following input, generate an output that classifies the input into one of the following categories: fruits, vegetables, beverages, or dairy.",
+    "input": "Milk",
+    "reference": "Dairy"
+  },
+  {
+    "id": "alpaca_22107",
+    "instruction": "Create a detailed budget.",
+    "input": "Monthly Income: $3,000",
+    "reference": "Rent/Mortgage: $1,000 \nUtilities: $200 \nGroceries: $300 \nMiscellaneous/Emergency funds: $200 \nEntertainment/Vacation: $400 \nCar Payments: $400 \nStudent Loan/Debt Payments:  $500 \nSavings: $500"
+  },
+  {
+    "id": "alpaca_22275",
+    "instruction": "Provide a title that captures the topic of the text.",
+    "input": "The struggles of an immigrant family to find acceptance",
+    "reference": "A Journey of Belonging: The Story of an Immigrant Family"
+  },
+  {
+    "id": "alpaca_22807",
+    "instruction": "Summarize the text by writing a headline and a sentence about the main idea.",
+    "input": "Traditional medicine has been used for centuries across many different cultures. It is still used in many regions now, but it is becoming less common due to the rise of modern healthcare systems.",
+    "reference": "Headline: Traditional Medicine Becoming Less Common with Modern Healthcare Systems\n\nTraditional medicine has been slowly losing ground to modern healthcare systems across different cultures due to an increasing preference towards the advanced treatments available from approach."
+  },
+  {
+    "id": "alpaca_22955",
+    "instruction": "Process this text to generate a headline summarizing the content.",
+    "input": "Rising ocean temperatures cause coral bleaching, leading to devastating effects for the environment.",
+    "reference": "Heat From Climate Change Causes Devastating Coral Bleaching."
+  },
+  {
+    "id": "alpaca_23054",
+    "instruction": "Given a list of three words, create a sentence to discover the hidden word.",
+    "input": "Suit, Tie, Wedding",
+    "reference": "What do you wear when you go to a wedding? A suit and tie!"
+  },
+  {
+    "id": "alpaca_23061",
+    "instruction": "In this task, you need to differentiate between the two given sentences and explain why one is correct and the other is not.",
+    "input": "Sentence 1: The number of people are increasing everyday.\nSentence 2: The number of people is increasing everyday.",
+    "reference": "Sentence 1 is incorrect because it is using an incorrect verb form. It should be \"is\" instead of \"are\".  Sentence 2 is correct because it is using the correct verb form. It is using the singular verb \"is\" to agree with the singular noun \"number\"."
+  },
+  {
+    "id": "alpaca_23149",
+    "instruction": "Add quotes around the following phrase for emphasis.",
+    "input": "I will succeed",
+    "reference": "\"I will succeed\"."
+  },
+  {
+    "id": "alpaca_23410",
+    "instruction": "Analyze the text and provide an estimation about the emotion behind it.",
+    "input": "I am so frustrated. Nothing ever seems to go right for me.",
+    "reference": "The text exhibits signs of frustration and annoyance as the speaker expresses a sense of helplessness."
+  },
+  {
+    "id": "alpaca_23752",
+    "instruction": "Find the longest word in the paragraph and explain the meaning of that word.",
+    "input": "In computing, artificial intelligence (AI) is the simulation of human intelligence processes by machines, especially computer systems. These processes include learning (the acquisition of information and rules for using the information), reasoning (using the rules to reach approximate or definite conclusions) and self-correction.",
+    "reference": "The longest word in the paragraph is \"self-correction\", which means the ability of a machine or system to identify and amend its own errors without external intervention. It is an important part of artificial intelligence and can be used in many different situations, from robotic systems to language processing and more."
+  },
+  {
+    "id": "alpaca_23819",
+    "instruction": "Generate a regex expression to match any usernames with alphanumeric characters.",
+    "input": "NA",
+    "reference": "^[a-zA-Z0-9]+$"
+  },
+  {
+    "id": "alpaca_23847",
+    "instruction": "Post a positive comment on a product review page.",
+    "input": "Product: A new type of laundry detergent",
+    "reference": "I recently tried the new laundry detergent and it's absolutely amazing! Even with tough stains the detergent works like a charm, leaving my clothes looking and smelling fresh. Definitely recommend giving it a try!"
+  },
+  {
+    "id": "alpaca_23851",
+    "instruction": "Given the X-Y coordinates below, color the corresponding squares in the grid.",
+    "input": "(2, 3) = Blue, (5, 4) = Green",
+    "reference": "<insert example image here>"
+  },
+  {
+    "id": "alpaca_23933",
+    "instruction": "Explain the primary benefit of the given technology.",
+    "input": "Virtual Reality (VR)",
+    "reference": "The primary benefit of Virtual Reality (VR) is that it can be used to create highly immersive, interactive experiences. This can be used to enhance experiences such as gaming, training, education, and more. It can also be used to simulate real world scenarios, allowing users to explore new places without having to leave the comfort of their homes."
+  },
+  {
+    "id": "alpaca_24087",
+    "instruction": "Choose the correct term to complete this sentence",
+    "input": "The teacher asked the student to show her his work, so she could check it for __________",
+    "reference": "accuracy"
+  },
+  {
+    "id": "alpaca_24627",
+    "instruction": "Given a table of data, determine if it follows the normal distribution.",
+    "input": "Table:\nScore\tFrequency\n3\t3\n4\t9\n5\t14\n6\t15\n7\t8\n8\t2\n9\t0",
+    "reference": "No, the data does not follow the normal distribution."
+  },
+  {
+    "id": "alpaca_24790",
+    "instruction": "Fill in the blank with a word that describes a person who is smart.",
+    "input": "He was a ______ person.",
+    "reference": "He was an intelligent person."
+  },
+  {
+    "id": "alpaca_24885",
+    "instruction": "Delete the adjective 'bustling' from the following sentence and rewrite it.",
+    "input": "The bustling city of Tokyo was awe-inspiring.",
+    "reference": "The city of Tokyo was awe-inspiring."
+  },
+  {
+    "id": "alpaca_25763",
+    "instruction": "Parse this sentence into its parts of speech.",
+    "input": "Most people travel on vacation in the summer.",
+    "reference": "Most (adjective) people (noun) travel (verb) on (preposition) vacation (noun) in (preposition) the (determiner) summer (noun)."
+  },
+  {
+    "id": "alpaca_25882",
+    "instruction": "Analyze the given text for the chief theme.",
+    "input": "The story of a little girl who makes a sacrifice for her friends to save them from harm.",
+    "reference": "The chief theme in this story is selfless love and sacrifice, as the little girl shows unconditional love for her friends and is willing to make the ultimate sacrifice to save them."
+  },
+  {
+    "id": "alpaca_25886",
+    "instruction": "Order the given list of words alphabetically",
+    "input": "Paper, sky, sun, tree",
+    "reference": "Paper, sky, sun, tree."
+  },
+  {
+    "id": "alpaca_25933",
+    "instruction": "Append your name to the beginning of each string in the list.",
+    "input": "[\"Hello World!\", \"Good Morning!\", \"Good Evening!\"]",
+    "reference": "[\"[Your Name] Hello World!\", \"[Your Name] Good Morning!\", \"[Your Name] Good Evening!\"]"
+  },
+  {
+    "id": "alpaca_26187",
+    "instruction": "Edit the phrase so it would make sense in the context of a job advertisement.",
+    "input": "Looking for a hardworking person to join our team.",
+    "reference": "We are looking for a hardworking and motivated individual to join our team."
+  },
+  {
+    "id": "alpaca_27275",
+    "instruction": "Pick the sentence that most closely reflects the given opinion",
+    "input": "I prefer to do other activities than shop on the weekends",
+    "reference": "I would rather spend my weekends doing recreational activities than shopping."
+  },
+  {
+    "id": "alpaca_27486",
+    "instruction": "Rewrite the sentence: “She often takes long walks in the park”",
+    "input": "She often takes long walks in the park",
+    "reference": "She regularly embarks on lengthy strolls in the park."
+  },
+  {
+    "id": "alpaca_27720",
+    "instruction": "Given the symbols in the equation, identify the type of equation.",
+    "input": "2x+3y=7",
+    "reference": "This is a linear equation."
+  },
+  {
+    "id": "alpaca_27731",
+    "instruction": "Given the following description of a movie, classify it as a comedy, romance, or drama.",
+    "input": "A story of unlikely love between a man and a woman from different worlds.",
+    "reference": "Romance."
+  },
+  {
+    "id": "alpaca_27879",
+    "instruction": "Divide this list of sentences into two paragraphs.",
+    "input": "The sky is blue and sunny. The birds are chirping in the trees. The air is fresh and the grass is green.",
+    "reference": "The sky is blue and sunny. The birds are chirping in the trees. \n\nThe air is fresh and the grass is green."
+  },
+  {
+    "id": "alpaca_28157",
+    "instruction": "Generate a computer program to add two vectors of size 5.",
+    "input": "[3, 2, 1, 5, 7], [4, 1, 6, 9, 0]",
+    "reference": "def add_vector(v1, v2):\n    if len(v1) != len(v2):\n        raise Exception(\"Vectors are of different lengths\")\n    result = []\n    for i in range(len(v1)):\n        result.append(v1[i] + v2[i])\n    return result"
+  },
+  {
+    "id": "alpaca_29377",
+    "instruction": "Arrange the words in an appropriate grammar structure.",
+    "input": "bigger than elephant the",
+    "reference": "The elephant is bigger than"
+  },
+  {
+    "id": "alpaca_29626",
+    "instruction": "Given some data, classify the data as a circle, square, triangle, or none.",
+    "input": "The shape has 3 sides and each side is the same length.",
+    "reference": "This shape is a triangle."
+  },
+  {
+    "id": "alpaca_29925",
+    "instruction": "Reorder the following list of words with capital letters in the front.",
+    "input": "monday afternoon Thursday turkey",
+    "reference": "Thursday Monday Turkey Afternoon"
+  },
+  {
+    "id": "alpaca_30178",
+    "instruction": "Change the following sentence in to conditional statement.",
+    "input": "If I had enough money, I would buy a car.",
+    "reference": "I would buy a car if I had enough money."
+  },
+  {
+    "id": "alpaca_31153",
+    "instruction": "Identify five adjectives that describe the following product:",
+    "input": "Organic Aloe Vera juice",
+    "reference": "Organic, fresh, natural, revitalizing, nourishing."
+  },
+  {
+    "id": "alpaca_31371",
+    "instruction": "Find the list of ingredients for the given recipe.",
+    "input": "Grilled Asparagus",
+    "reference": "Ingredients:\n- 1 pound asparagus, trimmed\n- 2 tablespoons extra-virgin olive oil\n- 1/2 teaspoon kosher salt\n- 1/4 teaspoon freshly ground black pepper\n- 2 cloves garlic, minced\n- 1 tablespoon freshly squeezed lemon juice"
+  },
+  {
+    "id": "alpaca_31493",
+    "instruction": "Determine whether the sentence is grammatically correct or not. Output 1 for correct and 0 for incorrect.",
+    "input": "I like sunny days and to be outside.",
+    "reference": "0"
+  },
+  {
+    "id": "alpaca_31632",
+    "instruction": "Given two inputs, classify them as either natural or machine generated.",
+    "input": "This sentence was written by a human.\nThis sentence was output by a GPT model.",
+    "reference": "natural \nmachine generated"
+  },
+  {
+    "id": "alpaca_31872",
+    "instruction": "Compare two fruits and determine which is healthier.",
+    "input": "Apple | Orange",
+    "reference": "Both apples and oranges are healthy fruits that are packed with essential nutrients. However, due to its high fiber content, an apple is considered the healthier option of the two, as it helps to fill you up and regulate your blood sugar levels. Oranges are rich in Vitamin C, but their sugar content makes them less beneficial than an apple in terms of overall health."
+  },
+  {
+    "id": "alpaca_31886",
+    "instruction": "Rewrite the following sentence so that it does not begin with \"I\".",
+    "input": "I am excited for the future.",
+    "reference": "The future brings much anticipation and excitement."
+  },
+  {
+    "id": "alpaca_32233",
+    "instruction": "based on the given type of food, suggest a recipe.",
+    "input": "Vegan",
+    "reference": "A vegan-friendly recipe you could try is Chickpea Curry. This dish is made with various spices, onions, garlic, tomatoes, and chickpeas and is full of flavor."
+  },
+  {
+    "id": "alpaca_32280",
+    "instruction": "Edit the text so that there is no repetition of words or phrases.\n\nI love to love love reading stories.",
+    "input": "I love to love reading stories.",
+    "reference": "I enjoy reading stories."
+  },
+  {
+    "id": "alpaca_32443",
+    "instruction": "Develop a scheme to shift the following data",
+    "input": "Grocery store data",
+    "reference": "A suitable scheme to shift grocery store data could involve the use of a cloud-based platform to store the data. For instance, the platform could provide different levels of access to the data depending on the user's role. It could also provide the necessary tools and APIs to easily migrate the data and integrate other applications with the platform. Additionally, security measures, such as encryption, could be implemented to protect the data from external threats."
+  },
+  {
+    "id": "alpaca_32647",
+    "instruction": "Write a response to this comment:",
+    "input": "I'm so indecisive and always feel stuck.",
+    "reference": "It's okay to feel stuck in life sometimes. It's important to give yourself time and space to figure out what you want. Consider taking some time for yourself to explore different possibilities and make a decision that feels right to you. Having someone to talk to can help, too. Consider reaching out to a friend or a trusted advisor who might be able to offer support."
+  },
+  {
+    "id": "alpaca_32650",
+    "instruction": "Calculate the average grade for the following list of scores.",
+    "input": "List of scores: 50, 75, 80, 95",
+    "reference": "The average grade is 78.75."
+  },
+  {
+    "id": "alpaca_32946",
+    "instruction": "Rewrite the following job description for a HR Manager in a more professional language.",
+    "input": "We're looking for an awesome person to help us out with Hiring and Recruiting. You must be a people person with excellent communication skills.",
+    "reference": "We are in search of a competent HR Manager to oversee our human resources operations and ensure every aspect of staffing, recruitment, onboarding and administration is carried out in a timely and professional manner. The ideal candidate must be adept at interpersonal communication and be able to interact with people of various backgrounds."
+  },
+  {
+    "id": "alpaca_33400",
+    "instruction": "Identify the type of irony in the situation",
+    "input": "A fire station burns down",
+    "reference": "Situational irony."
+  },
+  {
+    "id": "alpaca_33678",
+    "instruction": "Given a list of names of people, order them from oldest to youngest.",
+    "input": "Jennifer, John, Victoria, Stephanie",
+    "reference": "John, Jennifer, Victoria, Stephanie"
+  },
+  {
+    "id": "alpaca_33725",
+    "instruction": "Create a web page for a new grocery story that incorporates the following elements.",
+    "input": "- A logo \n- A navigation bar \n- A simple search box",
+    "reference": "The web page should include a logo of the store, a navigation bar with the different categories of products, and a simple search box to quickly look for items. The logo should be eye-catching, while the navigation bar and search bar should be simple and intuitive to use."
+  },
+  {
+    "id": "alpaca_33988",
+    "instruction": "Fix the scrambled words and give the correct order.",
+    "input": "hital hsecp",
+    "reference": "Healthspa -> Spa Health"
+  },
+  {
+    "id": "alpaca_34038",
+    "instruction": "Reorganize the given paragraph to make its meaning more clear.",
+    "input": "Global warming, greenhouse effect, climate change, and corresponds are the terms we would usually use when speaking about the rise in temperatures in our atmosphere.",
+    "reference": "The terms we usually use when speaking about the rise in temperatures in our atmosphere are global warming, climate change, and the corresponding greenhouse effect."
+  },
+  {
+    "id": "alpaca_34254",
+    "instruction": "Given the following product description, create a product tagline.",
+    "input": "This outdoor camping tent is lightweight, waterproof, and features advanced ventilation technology.",
+    "reference": "The ultimate outdoor camping experience: Lightweight, waterproof, and advanced ventilation technology."
+  },
+  {
+    "id": "alpaca_34292",
+    "instruction": "Restate the following phrase in a positive way.",
+    "input": "It's not the best choice.",
+    "reference": "It is an acceptable choice."
+  },
+  {
+    "id": "alpaca_34529",
+    "instruction": "Create a song title that fits the given theme.",
+    "input": "Summer",
+    "reference": "\"Summer Nights in the City Lights\"."
+  },
+  {
+    "id": "alpaca_34624",
+    "instruction": "Describe how the following character feels in the following scenario.",
+    "input": "The character: Dedicated and devoted caretaker\nScenario: Meeting the family of the patient they just spent 6 months caring for",
+    "reference": "The caretaker is filled with a sense of pride and accomplishment. She is happy to meet the family of the patient she has been caring for for the past 6 months and is eager to see them reunited after such a long separation. She has grown intensely devoted to the patient and it warms her heart to see them in good spirits."
+  },
+  {
+    "id": "alpaca_34884",
+    "instruction": "Rewrite this sentence with two different adjectives",
+    "input": "The book was interesting.",
+    "reference": "The book was fascinating and compelling."
+  },
+  {
+    "id": "alpaca_35297",
+    "instruction": "Identify three rhetorical devices used in the example below",
+    "input": "\"I laughed so hard I almost stopped breathing.\"",
+    "reference": "The rhetorical devices used in the example are hyperbole, saying something extreme for dramatic effect; personification, giving life to an inanimate object; and alliteration, repeating the same sound in the beginning of multiple words."
+  },
+  {
+    "id": "alpaca_35774",
+    "instruction": "Calculate the sum of squared differences between two vectors.",
+    "input": "Vector x: [10, 8, 5]\nVector y: [5, 6, 2]",
+    "reference": "17"
+  },
+  {
+    "id": "alpaca_35861",
+    "instruction": "Describe how the market responded to the news.",
+    "input": "The news that the company was closing their doors due to a lack of demand sent shockwaves throughout the industry.",
+    "reference": "The market responded to the news with shock and uncertainty. Investors reacted quickly and share prices plummeted, with some companies losing large amounts of value. Businesses scrambled to shift their focus and employers sought alternative sources of income. The news had a profound and lasting impact on the market."
+  },
+  {
+    "id": "alpaca_36150",
+    "instruction": "Can you suggest a tagline for a business card design",
+    "input": "company name: RideGreen\ncompany motto: Quality products and services for a sustainable future",
+    "reference": "\"Creating a Brighter Tomorrow - RideGreen\""
+  },
+  {
+    "id": "alpaca_36189",
+    "instruction": "Summarize the contents of an article about the importance of exercise.",
+    "input": "The article is about the importance of getting enough exercise to maintain a healthy lifestyle.",
+    "reference": "Maintaining a healthy lifestyle is essential for overall well-being, and exercise is an important part of that. Exercise helps to regulate weight, improve physical strength, reduce stress, and boost energy levels. Additionally, exercise has been proven to provide numerous physical health benefits, which range from better sleep to improved heart health. Lastly, exercising can be a great way to stay socially connected and boost mental health, as it can be a great source of relaxation and stress relief. Overall, exercise is an important part of living a healthy and fulfilling life."
+  },
+  {
+    "id": "alpaca_36362",
+    "instruction": "Analyze the following text for sentiment and output whether it is positive, neutral or negative.",
+    "input": "The customer service is terrible and the process is confusing.",
+    "reference": "Negative"
+  },
+  {
+    "id": "alpaca_36383",
+    "instruction": "Change the given pronouns to their possessive forms.",
+    "input": "He took his notebook and showed it to them.",
+    "reference": "He took his notebook and showed it to their's."
+  },
+  {
+    "id": "alpaca_36526",
+    "instruction": "Rearrange a sentence to indicate the most effective order for its content.",
+    "input": "The store was closed because of the storm.",
+    "reference": "Because of the storm, the store was closed."
+  },
+  {
+    "id": "alpaca_36707",
+    "instruction": "Predict the future of the given technology in the next 5 years.",
+    "input": "AI technology",
+    "reference": "In the next five years, AI technology is expected to become even more ubiquitous, with applications in virtually every area of life, from consumer electronics to healthcare and finance. AI will be able to automate tedious and complex tasks, enabling people to become more efficient and productive, while increasing safety and accuracy in many processes."
+  },
+  {
+    "id": "alpaca_36767",
+    "instruction": "Develop a narrative for the following abrupt dialogue.",
+    "input": "John: That's not how it happened!\nJane: You're wrong.",
+    "reference": "John and Jane had been arguing for hours, their differing opinions evident in every point they made. John had been adamant that he was right, but Jane had disagreed and so the argument had raged on. When John finally declared that it wasn't how it had happened, Jane quickly fired back that he was wrong. Baffled, John looked at her, trying to make sense of the situation."
+  },
+  {
+    "id": "alpaca_37106",
+    "instruction": "Suppose you are applying for a management position and you're asked why you want the job, how would you respond?",
+    "input": "Question: Why do you want this job?",
+    "reference": "I want this job because I believe that my knowledge, experience, and enthusiasm for this type of work combined with my passion for leading teams and driving positive results makes me a great fit for the role. I'm motivated by challenges and eager to make an impact by leading a highly successful team of professionals. My goal is to build on successes and drive continued growth, while ensuring that my team develops professionally and personally."
+  },
+  {
+    "id": "alpaca_37401",
+    "instruction": "Write a classification statement which best describes the following paragraph",
+    "input": "The gig economy is an economic system in which temporary positions are common and organizations contract with independent workers for short-term engagements. This type of economy is also referred to as the sharing or collaborative economy. In the gig economy, companies do not have to commit to long-term contracts or commitments and can quickly hire and fire individuals to meet their needs.",
+    "reference": "The gig economy is an economic system which involves the hiring of independent workers for short-term engagements and deploys temporary positions in place of long term commitments."
+  },
+  {
+    "id": "alpaca_37775",
+    "instruction": "Categorise the following organisms as producers, consumers or decomposers",
+    "input": "bacteria, grass, fox",
+    "reference": "Bacteria: Decomposer\nGrass: Producer\nFox: Consumer"
+  },
+  {
+    "id": "alpaca_38097",
+    "instruction": "Develop a chatbot conversation for a customer services chatbot.",
+    "input": "Question: How can I return my purchase?",
+    "reference": "Hi there, thanks for reaching out. We would be happy to help you with returning your purchase. Please fill out our online return form and we will get back to you with the next steps."
+  },
+  {
+    "id": "alpaca_38271",
+    "instruction": "Update the following sentence using modern-day language:",
+    "input": "He waited for her reply with breath bated.",
+    "reference": "He waited for her reply with bated breath."
+  },
+  {
+    "id": "alpaca_38292",
+    "instruction": "Predict the temperature for one week given the current temperature.",
+    "input": "Today's temperature is 70 degree Fahrenheit",
+    "reference": "The temperature is expected to stay at 70 degrees Fahrenheit for the next three days, but then start to cool down to 65 degrees Fahrenheit on day four. Day Five is forecasted to be at 70 degrees Fahrenheit again. Days Six and Seven should show a gradual increase to 72 degrees Fahrenheit and then back down to 70 degrees Fahrenheit on the last day."
+  },
+  {
+    "id": "alpaca_38333",
+    "instruction": "Categorize the following phrase as happy, sad, or neutral.",
+    "input": "I am feeling sick.",
+    "reference": "Sad"
+  },
+  {
+    "id": "alpaca_38433",
+    "instruction": "Generate a concrete example for the given instruction.",
+    "input": "Instruction: Describe a time when you overcame difficulties.",
+    "reference": "I once had to organize a large event while understaffed. Despite being short-handed, I managed to pull together the necessary resources and implement new strategies to complete the event on time and within the budget."
+  },
+  {
+    "id": "alpaca_38493",
+    "instruction": "Identify the synonyms for the bolded words in the sentence below.",
+    "input": "The cost to try to influence the 2008 election could exceed $3 billion.",
+    "reference": "The cost to try to sway the 2008 election could exceed $3 billion."
+  },
+  {
+    "id": "alpaca_38713",
+    "instruction": "Complete the following text to form a short story.",
+    "input": "The girl found a magic lamp in the attic.",
+    "reference": "The girl was exploring in her attic one day when she found an old lamp tucked away in a corner. She brushed away the dust and cobwebs and picked it up, and upon rubbing it, a genie appeared! The genie granted her three wishes, and the girl thought carefully before wishing for a better life."
+  },
+  {
+    "id": "alpaca_39197",
+    "instruction": "From the given sentence, construct a question that requires yes or no as an answer.",
+    "input": "The meeting was cancelled.",
+    "reference": "Was the meeting cancelled?"
+  },
+  {
+    "id": "alpaca_39329",
+    "instruction": "Transform the input text into the present perfect tense.",
+    "input": "I finish my homework",
+    "reference": "I have finished my homework."
+  },
+  {
+    "id": "alpaca_39339",
+    "instruction": "Explain how the technology in the input works.",
+    "input": "Augmented Reality",
+    "reference": "Augmented reality (AR) is a technology that superimposes digital content on the physical environment. Using cameras, sensors, and advanced image recognition algorithms, AR is able to detect and track objects in the user’s environment and display images or videos above, below, beside and/or in place of the object. This allows users to interact with digital content in 3D space and experience a more immersive experience."
+  },
+  {
+    "id": "alpaca_39477",
+    "instruction": "Categorize the given list of adjectives into positive and negative.",
+    "input": "cold, happy, dishonest, eager",
+    "reference": "Positive adjectives: happy, eager\nNegative adjectives: cold, dishonest"
+  },
+  {
+    "id": "alpaca_39954",
+    "instruction": "Find the most frequent word in the passage and output the word.",
+    "input": "The job market is highly competitive. To stand out from other applicants, you must ensure your resume is up-to-date.",
+    "reference": "The"
+  },
+  {
+    "id": "alpaca_40021",
+    "instruction": "Add a transition sentence to the second paragraph of this essay.",
+    "input": "Paragraph 1:\nThrift shopping is a great way to stay fashionable while still being conscious of the environment. It's also an opportunity to have an original style  and stand out from the crowd. \nParagraph 2:\nFashion trends come and go, and searching through thrift stores is a great way to stay on top of the current trends without breaking the bank.",
+    "reference": "Therefore, thrift shopping is beneficial in many ways."
+  },
+  {
+    "id": "alpaca_40209",
+    "instruction": "Create an outline for a movie about a college student.",
+    "input": "Movie title: \"Collegiate\"",
+    "reference": "I. Introduction\nA. Introduction of protagonist \nB. Setting: College Campus\n\nII. Story Development \nA. Challenges of adjusting to college life \nB. New friendships and relationships\nC. Navigating academic expectations\n\nIII. Conflict\nA. Academic struggles\nB. Relationship struggles\nC. Financial struggles\n\nIV. Resolution\nA. Victory in academic performance \nB. Repairing relationships with peers\nC. Financial stability\n\nV. Conclusion\nA. Protagonist's reflection on lessons learned \nB. Graduation and wins in academic, financial, and social life"
+  },
+  {
+    "id": "alpaca_40650",
+    "instruction": "Explain why the following policy could be controversial",
+    "input": "A new law that prohibits people from buying more than one piece of clothing per month.",
+    "reference": "This law could be controversial because it limits individual freedom and could be seen as a violation of personal autonomy. It could also be seen as unfairly targeting those who are unable to afford or access clothing, or people who rely on clothing to express themselves."
+  },
+  {
+    "id": "alpaca_40669",
+    "instruction": "Write a function that takes two strings as arguments and returns true if they are anagrams of each other and false otherwise.",
+    "input": "string str1 = \"anagram\"; \nstring str2 = \"nagaram\";",
+    "reference": "bool isAnagram(string str1, string str2) {\n    if (str1.length() != str2.length()) \n        return false; \n    sort(str1.begin(), str1.end()); \n    sort(str2.begin(), str2.end()); \n  \n    for (int i = 0; i < str1.length(); i++) \n        if (str1[i] != str2[i]) \n            return false; \n  \n    return true; \n}"
+  },
+  {
+    "id": "alpaca_40914",
+    "instruction": "Given a list of animals, name their habitats.",
+    "input": "Cheetah, Blue whale",
+    "reference": "Cheetah (Savannahs), Blue whale (Marine)"
+  },
+  {
+    "id": "alpaca_41178",
+    "instruction": "Resolve the issue described in the following ticket",
+    "input": "My internet is not working and I have no idea why.",
+    "reference": "To resolve this issue, we recommend that you first power cycle your router. Unplug the power cord from your router, wait 30 seconds, and plug the power cord back in. If that doesn't work, please reach out to your Internet Service Provider for further assistance."
+  },
+  {
+    "id": "alpaca_41214",
+    "instruction": "Summarize the article locating the main idea.",
+    "input": "More and more animals are now able to survive in their habitats thanks to conservation efforts. In many cases, these successful conservation initiatives depended on cooperation between local governments and animal researchers, as well as private individuals. To protect certain species, it has become increasingly important to bring small, particular projects to the collective public eye.",
+    "reference": "The survival of animals in their habitats is becoming increasingly dependent on collaborative efforts between different organizations, governments, and private individuals, highlighting the importance of publicizing conservation initiatives in order to protect specific species."
+  },
+  {
+    "id": "alpaca_41402",
+    "instruction": "Create a profile summary for a job applicant.",
+    "input": "Name: Jane Doe\nEducation: University of California, Berkeley\nExperience: 8 years of marketing and customer service",
+    "reference": "Jane Doe is a highly experienced professional with eight years of marketing and customer service experience. She holds a Bachelor's degree in Communications from the University of California, Berkeley and has a track record of developing successful customer engagement strategies. She is knowledgeable and creative when it comes to designing marketing content and campaigns. Jane is a quick learner with a passion for staying up to date with the newest trends and technologies. She is a proven leader with a strong work ethic and excellent communication skills."
+  },
+  {
+    "id": "alpaca_41511",
+    "instruction": "Based on the given context, identify the most likely genre of the story.",
+    "input": "The protagonist was a young girl, who had the mystical ability to see into the future.",
+    "reference": "Fantasy."
+  },
+  {
+    "id": "alpaca_41899",
+    "instruction": "Identify the group of words below that is a conjunction.",
+    "input": "as, as soon, although",
+    "reference": "The conjunction in this group is \"although\"."
+  },
+  {
+    "id": "alpaca_42049",
+    "instruction": "Increase the difficulty of the following riddle: \n\"What has many keys but can't even open a single door?\"",
+    "input": "\"What has many keys but can't even turn a single lock?\"",
+    "reference": "What has many keys but can't even open a single door, nor turn a single lock?"
+  },
+  {
+    "id": "alpaca_42305",
+    "instruction": "Classify the flower species according to their colors.",
+    "input": "Red Rose, White Daisy, Blue Hydrangea",
+    "reference": "Red Rose -- Red\nWhite Daisy -- White\nBlue Hydrangea -- Blue"
+  },
+  {
+    "id": "alpaca_42551",
+    "instruction": "Create a list of four possible topics to write about for this blog.",
+    "input": "Exploring the Beauty of Nature",
+    "reference": "1. How Nature Can Help Reduce Stress and Improve Your Mental Health\n2. Exploring the Different Unusual Ecosystems Around the World\n3. The Most Common Types of Trees Found in Forests\n4. Incorporating Natural Elements Into Home Design for a Relaxing Environment"
+  },
+  {
+    "id": "alpaca_42733",
+    "instruction": "Transform the following sentence so that the meaning does not change.",
+    "input": "I took a haircut yesterday",
+    "reference": "I had a haircut yesterday."
+  },
+  {
+    "id": "alpaca_42886",
+    "instruction": "Complete the following sentence using the given words. The output should use all the words in the given order.",
+    "input": "sentence petite vacation exotic",
+    "reference": "We had a petite, exotic vacation."
+  },
+  {
+    "id": "alpaca_43687",
+    "instruction": "Create an original program to solve this problem",
+    "input": "A traveler is trying to get from point A to point B with three layovers.",
+    "reference": "The program should first calculate the shortest route with the least amount of layovers to reach point B from point A. The traveler should then be able to make the necessary bookings or reservations along the route, while being able to adjust their travel plans in the event of any unexpected delays. The program should also provide updated information about flight schedules, airline routes and other useful information which can help the traveler plan ahead and make their journey as smooth as possible."
+  },
+  {
+    "id": "alpaca_44296",
+    "instruction": "Consider the following statement, which type of logical fallacy is being used?",
+    "input": "\"You can't trust what they say because they've been wrong before.\"",
+    "reference": "The logical fallacy used in this statement is an Appeal to Authority. It is arguing that because the other party has been wrong before, their current statement is untrue."
+  },
+  {
+    "id": "alpaca_44333",
+    "instruction": "Given a natural disaster, list possible safety procedures and advice.",
+    "input": "Natural Disaster: Flash Flood",
+    "reference": "If a flash flood warning is issued, the following safety measures should be taken:\n1. Evacuate to higher ground immediately\n2. Stay away from rivers, streams, and creeks\n3. Find shelter in a sturdy building\n4. Follow the instructions of the local authorities \n5. Keep an emergency kit including bottled water, canned food, a flashlight, and extra batteries."
+  },
+  {
+    "id": "alpaca_44385",
+    "instruction": "You are given a list of contact names and emails. Clean the data and make sure all emails are valid",
+    "input": "Jacob Benson- jacob.benson@gmail,com\nSam Cook- samjaycook@hotmail.",
+    "reference": "Jacob Benson - jacob.benson@gmail.com\nSam Cook - samjaycook@hotmail.com"
+  },
+  {
+    "id": "alpaca_44489",
+    "instruction": "Classify the following sentence: She quickly ran away.",
+    "input": "She quickly ran away.",
+    "reference": "This sentence is classified as an action."
+  },
+  {
+    "id": "alpaca_45085",
+    "instruction": "Format the following sentence into an xml tag",
+    "input": "This is a sentence",
+    "reference": "<sentence>This is a sentence</sentence>"
+  },
+  {
+    "id": "alpaca_45421",
+    "instruction": "Edit this sentence to make it more engaging \"The world is full of wonders\".",
+    "input": "The world is full of wonders",
+    "reference": "Exploring the world unveils a multitude of dazzling wonders."
+  },
+  {
+    "id": "alpaca_45615",
+    "instruction": "Take the following phrase and suggest a synonym.",
+    "input": "Obtain",
+    "reference": "Acquire"
+  },
+  {
+    "id": "alpaca_46021",
+    "instruction": "Add an example to explain this statement.",
+    "input": "Organizing data is useful because it helps you to analyze it.",
+    "reference": "For example, if you organize sales data by store, then you can easily compare and contrast store performances, helping you identify areas where improvements can be made."
+  },
+  {
+    "id": "alpaca_46237",
+    "instruction": "Design a system architecture for a data processing task.",
+    "input": "The system should process text documents and convert them into audio files.",
+    "reference": "The system architecture should include components to read the text document, perform natural language processing tasks, use text-to-speech software to convert the text into audio, and store the audio files."
+  },
+  {
+    "id": "alpaca_46575",
+    "instruction": "Given the set of data, write a function in Python to calculate the logarithmic average.",
+    "input": "Data = [1,2,4,8,16]",
+    "reference": "def logarithmic_average(data):\n    \"\"\"\n    Calculates the logarithmic average of a given set of data.\n\n    Parameters:\n    data (list): The set of data to calculate the logarithmic average of.\n\n    Returns:\n    float: The logarithmic average of the given set of data.\n    \"\"\"\n    total_logs = 0\n    for item in data:\n        total_logs += math.log(item)\n  \n    return math.exp(total_logs / len(data))"
+  },
+  {
+    "id": "alpaca_46821",
+    "instruction": "Find the similarity between two objects",
+    "input": "Cat and Dog",
+    "reference": "The similarity between a cat and a dog is that they are both mammals."
+  },
+  {
+    "id": "alpaca_46827",
+    "instruction": "Generate at least one possible solution for this problem.",
+    "input": "There is a need to reduce traffic accidents in cities.",
+    "reference": "One possible solution is to increase the public transportation options in cities, such as buses, subways, and light rail. This would reduce reliance on private vehicles and therefore reduce the number of accidents occurring on urban roads."
+  },
+  {
+    "id": "alpaca_46845",
+    "instruction": "Given two musical scales, write a musical piece in 4 parts.",
+    "input": "E Major and C Minor",
+    "reference": "Part 1: The main melody is written in E Major, with a few flourishes in C Minor.\nPart 2: The accompaniment is in C Minor, with short transitions in E Major.\nPart 3: Both scales are combined to create intricate textures and melodies. \nPart 4: A recapitulation of the main melody in E Major brings the piece to a close."
+  },
+  {
+    "id": "alpaca_47028",
+    "instruction": "From the given passage, list the three details given about Alice's town.",
+    "input": "Alice lives in a small town in the middle of nowhere. The town is full of quirky characters who are constantly in and out of each other’s lives. She has a close circle of friends and enjoys the small-town feel and its friendly vibe.",
+    "reference": "1. Small town\n2. Quirky characters\n3. Friendly vibe"
+  },
+  {
+    "id": "alpaca_47171",
+    "instruction": "Design a structure to make the given pattern.",
+    "input": "[Image of pattern]",
+    "reference": "[Image of structure]"
+  },
+  {
+    "id": "alpaca_47495",
+    "instruction": "Calculate the mean and standard deviation for the given data set.",
+    "input": "2, 3, 4, 5, 6",
+    "reference": "Mean = 4\nStandard Deviation = 1.414213562373095"
+  },
+  {
+    "id": "alpaca_47883",
+    "instruction": "Classify these five animals into two different groups.",
+    "input": "Tiger, Shark, Elephant, Whale, Kangaroo",
+    "reference": "Group 1: Tiger, Shark, Whale\nGroup 2: Elephant, Kangaroo"
+  },
+  {
+    "id": "alpaca_47920",
+    "instruction": "Parse the following text and output the root of the verb.",
+    "input": "My mother is baking a pie.",
+    "reference": "bake"
+  },
+  {
+    "id": "alpaca_48320",
+    "instruction": "Given a novel, explain the main theme in one sentence.",
+    "input": "The Great Gatsby by F. Scott Fitzgerald",
+    "reference": "The Great Gatsby is a story about the hollow pursuit of the American Dream and its disillusionment by the corruption and materialism of the Jazz Age."
+  },
+  {
+    "id": "alpaca_48565",
+    "instruction": "From the text below, create a unique opening phrase for a story about a young girl who lives in a world where electricity is scarce",
+    "input": "The young girl was born into a world of clashing technology and scarcity. She had been raised to understand the consequences of the world around her, yet she still dreamt of a place where electricity was abundant.",
+    "reference": "In a world of clashing technology and scarcity, a young girl grew up dreaming of a place where electricity was abundant."
+  },
+  {
+    "id": "alpaca_49203",
+    "instruction": "Convert this sentence into third person",
+    "input": "I'm going to the store.",
+    "reference": "She is going to the store."
+  },
+  {
+    "id": "alpaca_49254",
+    "instruction": "Come up with a clever marketing slogan for a new financial management app.",
+    "input": "Financial management app:\nMoneyCap",
+    "reference": "MoneyCap: \"Manage Your Money the Smart Way!\""
+  },
+  {
+    "id": "alpaca_49658",
+    "instruction": "Find the sentence containing the most words. Output the sentence index.",
+    "input": "(1) I heard they have amazing gelato in Italy. (2) We should go visit some time if we have the opportunity. (3) I don't think it is a place that should be overlooked. (4) It is one of those trips that will stay with you forever.",
+    "reference": "3"
+  },
+  {
+    "id": "alpaca_49799",
+    "instruction": "Take the given text and modify it to make it more interesting.",
+    "input": "It was a sunny day.",
+    "reference": "The sun shone brightly on that glorious day, warming everything in sight with its glorious rays."
+  },
+  {
+    "id": "alpaca_50368",
+    "instruction": "Add an example and rephrase the following theorems.",
+    "input": "Pythagorean Theorem: The square of the hypotenuse of a right triangle equals the sum of the squares of the other two sides.",
+    "reference": "For example, let us consider a right triangle with legs 'a' and 'b' and hypotenuse 'c'. The Pythagorean Theorem states that a^2 + b^2 = c^2."
+  },
+  {
+    "id": "alpaca_50620",
+    "instruction": "Suggest 3 ways to use a given ingredient in a recipe.",
+    "input": "Carrots",
+    "reference": "Three ways to use carrots in a recipe are: \n- Carrot Soup \n- Carrot Cake \n- Roasted Carrots with Herbs and Spices"
+  },
+  {
+    "id": "alpaca_50628",
+    "instruction": "Suggest 3 variations of a given recipe.",
+    "input": "Apple Pie",
+    "reference": "Three variations of a traditional apple pie recipe are:\n- Apple Crumble Pie - layer sliced apples and cinnamon sugar in a baking dish and top with a crumble topping of flour, butter and sugar. \n- Apple Streusel Pie - layer sliced apples with cinnamon sugar, then top with a streusel topping of butter, flour, cinnamon and sugar. \n- Apple Caramel Pie – layer sliced apples with caramel sauce and sprinkle with crumble topping."
+  },
+  {
+    "id": "alpaca_51257",
+    "instruction": "Give an example of when this might be used.",
+    "input": "AI-driven customer support",
+    "reference": "AI-driven customer support can be used to provide customers with 24/7 assistance, even though there may be no human customer service representatives available. For example, a customer might have issues with their account on a website or need to know something about a product or service. AI-driven customer support can be used to quickly and accurately provide fast, intelligent customer service that is tailored to the customer's individual needs."
+  },
+  {
+    "id": "alpaca_51893",
+    "instruction": "How dense is a given material?",
+    "input": "Steel",
+    "reference": "The density of steel is about 7.85 g/cm3. It is a relatively dense material with a specific gravity of 7.87, meaning it is 7.87 times heavier than water. Steel grades can vary in density, as lower-grade alloys tend to be lighter and higher-grade alloys tend to be heavier."
+  },
+  {
+    "id": "alpaca_51994",
+    "instruction": "Create a classification algorithm for a given dataset.",
+    "input": "Dataset of medical images",
+    "reference": "We can use a convolutional neural network (CNN) for classifying medical images. We can use the CNN model to extract features from each image in the dataset and then use these features to classify the images into the appropriate classes. The CNN can be trained on a variety of layers and will be able to recognize different types of features and patterns in the images. After the model is trained, it can be used to classify new medical images that have been previously unseen by the model."
+  }
+]

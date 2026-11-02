@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the paper."
+title: "MultiStruQ: Multilingual Prompt Injection Defense for Indian Languages"
+type: software
+license: MIT
+repository-code: "https://github.com/adi-13-ya/multistruq"
+authors:
+  - family-names: Gujar
+    given-names: Aditya
+    affiliation: Vellore Institute of Technology
+  - family-names: Shukla
+    given-names: Aditya
+    affiliation: Vellore Institute of Technology
+preferred-citation:
+  type: article
+  title: "Structured Formatting Is Not Enough: Adversarial Fine-Tuning for Multilingual Prompt Injection Defense in Indian Languages"
+  authors:
+    - family-names: Gujar
+      given-names: Aditya
+    - family-names: Shukla
+      given-names: Aditya
+  year: 2026
