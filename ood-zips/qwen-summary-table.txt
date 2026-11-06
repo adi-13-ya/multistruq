@@ -1,0 +1,6 @@
+condition                ASR %  hijack %
+ood_baseline             43.75     41.75
+ood_struq                53.00     51.50
+ood_sandwich             24.50     23.50
+ood_multistruq            0.75      0.75
+ood_forgery_multistruq   31.75     31.00

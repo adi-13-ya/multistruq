@@ -22,3 +22,7 @@ A table is only written once its inputs exist. For example, the per-strategy tab
 extended evaluation notebooks have recorded per-attack-type counts. Macro keys follow
 `<model>-<condition>-<stat>`, with model `qwen | llama | mistral | pooled` and condition
 `baseline | sf | ms | sanms | chat | instructional | sandwich | spotlight | secalign | forgerysf | forgerysansf | forgeryms | forgerysanms`, plus `msalt`, `sanmsalt`, `forgerymsalt`, `forgerysanmsalt` for the other recipe.
+
+Unseen-attack results (`RUN_MODE = "ood"`) use the conditions `oodbaseline | oodsf | oodsandwich | oodms | oodforgeryms`
+(e.g. `\R{pooled-oodms-asr}`, `\R{pooled-ood-dabs}`) and add `tab_ood_extended.tex` (per model) and
+`tab_oodtype_extended.tex` (per attack family, keys `oodtype-<family>-<condition>-asr`).

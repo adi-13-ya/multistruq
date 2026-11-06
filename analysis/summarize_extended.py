@@ -47,12 +47,22 @@ STOCK_EXTRA = [
     ("secalign", "meta_secalign", "Meta-SecAlign-8B"),
     ("forgerysf", "forgery_struq", "Format only + forged headers"),
     ("forgerysansf", "forgery_sanitized_struq", "Format only + forged headers, sanitized"),
+    # unseen-attack set (multilingual_eval_dataset_ood.json): new wording, new target
+    ("oodbaseline", "ood_baseline", "Unseen attacks: no defense"),
+    ("oodsf", "ood_struq", "Unseen attacks: format only"),
+    ("oodsandwich", "ood_sandwich", "Unseen attacks: sandwich prompt"),
 ]
 ADAPTER_EXTRA = [
     ("sanms", "sanitized_multistruq", "MultiStruQ, sanitized"),
     ("forgeryms", "forgery_multistruq", "MultiStruQ + forged headers"),
     ("forgerysanms", "forgery_sanitized_multistruq", "MultiStruQ + forged headers, sanitized"),
+    ("oodms", "ood_multistruq", "Unseen attacks: MultiStruQ"),
+    ("oodforgeryms", "ood_forgery_multistruq", "Unseen attacks: MultiStruQ + forged headers"),
+    ("oodforgerysanms", "ood_forgery_sanitized_multistruq", "Unseen attacks: MultiStruQ + forged headers, sanitized"),
 ]
+# columns of the unseen-attack tables
+OOD = [("oodbaseline", "No defense"), ("oodsf", "Format only"), ("oodsandwich", "Sandwich"),
+       ("oodms", "MultiStruQ"), ("oodforgeryms", "+ forged"), ("oodforgerysanms", "+ forged, san.")]
 EXTRA = STOCK_EXTRA + ADAPTER_EXTRA
 ADAPTER_KEYS = {"ms"} | {k for k, _, _ in ADAPTER_EXTRA}
 RECIPE_TAGS = {"paper": "", "improved": "improved"}
@@ -237,11 +247,11 @@ def compute(data):
                 S["per_language"].setdefault(lfile, {})[ckey] = {"n": tot, "succeeded": succ, "asr": pct(succ, tot),
                                                                  "hijack_rate": pct(hij, tot) if hr_ok else None}
 
-    # per attack type (only once the extended notebooks have recorded it)
-    for ckey, _, _ in CORE:
+    # per attack type (only once the extended notebooks have recorded it); the unseen-attack set has its own families
+    for ckey, slot in [(c, "per_attack_type") for c, _, _ in CORE] + [(c, "per_attack_type_ood") for c, _ in OOD]:
         agg, ok = {}, bool(complete)
         for mkey in complete:
-            by_type = conds[mkey][ckey].get("results_by_attack_type")
+            by_type = (conds[mkey].get(ckey) or {}).get("results_by_attack_type")
             if not by_type:
                 ok = False
                 break
@@ -252,8 +262,17 @@ def compute(data):
                 a["hijacked"] += g.get("hijacked", 0)
         if ok:
             for t, a in agg.items():
-                S["per_attack_type"].setdefault(t, {})[ckey] = {**a, "asr": pct(a["succeeded"], a["n"]),
-                                                                "hijack_rate": pct(a["hijacked"], a["n"])}
+                S.setdefault(slot, {}).setdefault(t, {})[ckey] = {**a, "asr": pct(a["succeeded"], a["n"]),
+                                                                  "hijack_rate": pct(a["hijacked"], a["n"])}
+                if slot == "per_attack_type_ood":
+                    R[f"oodtype-{t.replace('_', '')}-{ckey}-asr"] = f2(pct(a["succeeded"], a["n"]))
+                    R[f"oodtype-{t.replace('_', '')}-n"] = str(a["n"])
+
+    # unseen attacks: reduction from no defense to MultiStruQ
+    for mkey in [m for m, _, _, _ in MODELS] + ["pooled"]:
+        src = S["pooled"] if mkey == "pooled" else S["models"].get(mkey, {})
+        if "oodbaseline" in src and "oodms" in src:
+            R[f"{mkey}-ood-dabs"] = f2(src["oodbaseline"]["asr"] - src["oodms"]["asr"])
 
     # utility
     for mkey, per in data["utility"].items():
@@ -266,6 +285,8 @@ def compute(data):
     for slot, infix in [("train", ""), ("train_alt", "-alt")]:
         for mkey, log in data[slot].items():
             R[f"{mkey}{infix}-steps"] = str(log["global_step"])
+            if "train_runtime_s" in log:
+                R[f"{mkey}{infix}-hours"] = f"{log['train_runtime_s'] / 3600:.1f}"
             R[f"{mkey}{infix}-ntrain"] = f"{log['n_train']:,}".replace(",", "{,}")
             if "n_gpu" in log:
                 R[f"{mkey}{infix}-ngpu"] = str(log["n_gpu"])
@@ -373,7 +394,8 @@ def tab_attacktype(S, out):
 
 EXTRAS_ORDER = ["baseline", "sf", "ms", "msalt", "chat", "instructional", "sandwich", "spotlight", "secalign", "|",
                 "sanms", "sanmsalt", "forgerysf", "forgerysansf", "forgeryms", "forgerysanms", "forgerymsalt",
-                "forgerysanmsalt"]
+                "forgerysanmsalt", "|", "oodbaseline", "oodsf", "oodsandwich", "oodms", "oodmsalt", "oodforgeryms",
+                "oodforgerymsalt", "oodforgerysanms", "oodforgerysanmsalt"]
 
 
 def tab_extras(S, out):
@@ -393,11 +415,55 @@ def tab_extras(S, out):
 
     for c in EXTRAS_ORDER:
         if c == "|":
-            rows.append("\\midrule")
+            if rows[-1] != "\\midrule":
+                rows.append("\\midrule")
         elif present(c):
             rows.append(f"{labels[c]} & " + " & ".join(cell(m, c) for m, _, _, _ in MODELS) + " \\\\")
+    if rows[-1] == "\\midrule":
+        rows.pop()
     rows += ["\\bottomrule", "\\end{tabular}"]
     write(out, "tab_extras_extended.tex", "\n".join(rows) + "\n")
+
+
+def tab_ood(S, out):
+    """Unseen attacks: ASR (HR) per model and pooled, one column per condition."""
+    if "oodms" not in S["pooled"]:
+        return
+    cols = [(c, lab) for c, lab in OOD if c in S["pooled"]]
+    rows = ["\\begin{tabular}{@{}l" + "r" * len(cols) + "@{}}", "\\toprule",
+            "Model & " + " & ".join(lab for _, lab in cols) + " \\\\", "\\midrule"]
+    blocks = [(SHORT[m], S["models"][m]) for m, _, _, _ in MODELS if m in S["complete_models"]]
+    blocks.append(("\\textbf{Pooled}", S["pooled"]))
+    for i, (name, src) in enumerate(blocks):
+        if i == len(blocks) - 1:
+            rows.append("\\midrule")
+        cells = []
+        for c, _ in cols:
+            st = src[c]
+            v = f2(st["asr"])
+            cells.append(f"\\textbf{{{v}}}" if c == "oodms" else v)
+        rows.append(f"{name} & " + " & ".join(cells) + " \\\\")
+    p = S["pooled"]["oodms"]
+    rows.append(f"\\multicolumn{{{len(cols) + 1}}}{{@{{}}l}}{{\\footnotesize Pooled MultiStruQ: "
+                f"{p['succeeded']}/{p['n']}, 95\\% CI [{f2(p['ci95'][0])}, {f2(p['ci95'][1])}]}} \\\\")
+    rows += ["\\bottomrule", "\\end{tabular}"]
+    write(out, "tab_ood_extended.tex", "\n".join(rows) + "\n")
+
+
+def tab_oodtype(S, out):
+    """Unseen attacks: pooled ASR per attack family."""
+    per = S.get("per_attack_type_ood", {})
+    cols = [(c, lab) for c, lab in OOD if all(c in v for v in per.values())]
+    if not per or not any(c == "oodms" for c, _ in cols):
+        return
+    order = sorted(per, key=lambda t: -per[t][cols[0][0]]["asr"])
+    rows = ["\\begin{tabular}{@{}lr" + "r" * len(cols) + "@{}}", "\\toprule",
+            "Family & $n$ & " + " & ".join(lab for _, lab in cols) + " \\\\", "\\midrule"]
+    for t in order:
+        v = per[t]
+        rows.append(f"{t.replace('_', ' ')} & {v[cols[0][0]]['n']} & " + " & ".join(f2(v[c]['asr']) for c, _ in cols) + " \\\\")
+    rows += ["\\bottomrule", "\\end{tabular}"]
+    write(out, "tab_oodtype_extended.tex", "\n".join(rows) + "\n")
 
 
 def tab_utility(data, out):
@@ -583,6 +649,8 @@ def main():
     tab_perlang(S, args.out)
     tab_attacktype(S, args.out)
     tab_extras(S, args.out)
+    tab_ood(S, args.out)
+    tab_oodtype(S, args.out)
     tab_utility(data, args.out)
     tab_tokens(data, args.out)
     figures(S, data, args.out)

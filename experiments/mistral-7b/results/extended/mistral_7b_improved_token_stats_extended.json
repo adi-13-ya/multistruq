@@ -1,0 +1,76 @@
+{
+  "model": "mistralai/Mistral-7B-Instruct-v0.3",
+  "max_length": 256,
+  "per_language": {
+    "clean": {
+      "n": 3000,
+      "mean_full_tokens": 117.1,
+      "median_full_tokens": 93,
+      "pct_truncated": 3.13,
+      "pct_prompt_overflow": 0.03
+    },
+    "english": {
+      "n": 675,
+      "mean_full_tokens": 136.7,
+      "median_full_tokens": 112,
+      "pct_truncated": 4.89,
+      "pct_prompt_overflow": 0.15
+    },
+    "hinglish": {
+      "n": 630,
+      "mean_full_tokens": 141.0,
+      "median_full_tokens": 120,
+      "pct_truncated": 4.44,
+      "pct_prompt_overflow": 0.0
+    },
+    "hindi_native": {
+      "n": 510,
+      "mean_full_tokens": 166.0,
+      "median_full_tokens": 149,
+      "pct_truncated": 5.88,
+      "pct_prompt_overflow": 0.2
+    },
+    "cultural": {
+      "n": 330,
+      "mean_full_tokens": 139.5,
+      "median_full_tokens": 116,
+      "pct_truncated": 2.73,
+      "pct_prompt_overflow": 0.0
+    },
+    "cross_lingual": {
+      "n": 300,
+      "mean_full_tokens": 149.4,
+      "median_full_tokens": 133,
+      "pct_truncated": 5.0,
+      "pct_prompt_overflow": 0.0
+    },
+    "bengali": {
+      "n": 210,
+      "mean_full_tokens": 168.0,
+      "median_full_tokens": 144,
+      "pct_truncated": 10.48,
+      "pct_prompt_overflow": 0.48
+    },
+    "tamil": {
+      "n": 135,
+      "mean_full_tokens": 182.8,
+      "median_full_tokens": 166,
+      "pct_truncated": 10.37,
+      "pct_prompt_overflow": 0.0
+    },
+    "marathi": {
+      "n": 120,
+      "mean_full_tokens": 147.1,
+      "median_full_tokens": 132,
+      "pct_truncated": 1.67,
+      "pct_prompt_overflow": 0.0
+    },
+    "telugu": {
+      "n": 90,
+      "mean_full_tokens": 210.4,
+      "median_full_tokens": 178,
+      "pct_truncated": 17.78,
+      "pct_prompt_overflow": 0.0
+    }
+  }
+}

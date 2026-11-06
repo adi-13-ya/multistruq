@@ -63,6 +63,7 @@ All conditions use greedy decoding, batch size 8 and a 50-token budget for attac
 | `spotlight` | datamarking with `^` between words | stock | prompt defense (Hines et al.) |
 | `forgery_struq`, `forgery_multistruq` | injection preceded by forged `### Response:` / `### Instruction:` | stock / + adapter | schema-aware adaptive attack |
 | `forgery_sanitized_struq`, `forgery_sanitized_multistruq` | the forgery attack after sanitizing | stock / + adapter | does sanitizing stop forgery? |
+| `ood_baseline`, `ood_struq`, `ood_sandwich`, `ood_multistruq`, `ood_forgery_multistruq`, `ood_forgery_sanitized_multistruq` | as the matching condition, on `multilingual_eval_dataset_ood.json` | stock / + adapter | attacks with new wording and a new target (`Jackpot!`) |
 | `meta_secalign` (Llama only, off by default) | Meta-SecAlign chat template with an `input` role | Meta-SecAlign-8B adapter | external trained baseline |
 
 The **sanitizer** drops every line of the data that starts with `#` (after Unicode NFKC folding, so full-width
@@ -70,7 +71,9 @@ The **sanitizer** drops every line of the data that starts with `#` (after Unico
 
 `RUN_MODE = "update"` (default) runs the four adapter conditions, `forgery_sanitized_struq` and utility for
 MultiStruQ, which is all a new adapter needs. `RUN_MODE = "full"` runs everything, for a from-scratch
-reproduction. The `struq` key is kept for compatibility; the paper calls this condition SF.
+reproduction. `RUN_MODE = "ood"` runs only the six unseen-attack conditions (about 35–45 minutes per model on
+T4 x2), and `RUN_MODE = "ood_sanitized"` only the sanitized forged-header one (about 15 minutes); the attack texts of the main set all occur in training, so this is the test of generalization. Add
+`multilingual_eval_dataset_ood.json` to the Kaggle dataset first. The `struq` key is kept for compatibility; the paper calls this condition SF.
 
 ## Scoring
 

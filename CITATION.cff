@@ -11,6 +11,12 @@ authors:
   - family-names: Shukla
     given-names: Aditya
     affiliation: Vellore Institute of Technology
+  - family-names: Tiwari
+    given-names: Arushi
+    affiliation: Vellore Institute of Technology
+  - family-names: Khare
+    given-names: Neelu
+    affiliation: Vellore Institute of Technology
 preferred-citation:
   type: article
   title: "Structured Formatting Is Not Enough: Adversarial Fine-Tuning for Multilingual Prompt Injection Defense in Indian Languages"
@@ -19,4 +25,8 @@ preferred-citation:
       given-names: Aditya
     - family-names: Shukla
       given-names: Aditya
+    - family-names: Tiwari
+      given-names: Arushi
+    - family-names: Khare
+      given-names: Neelu
   year: 2026

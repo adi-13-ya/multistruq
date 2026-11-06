@@ -3,7 +3,7 @@
 Code, data and evaluation records for the paper
 
 > **Structured Formatting Is Not Enough: Adversarial Fine-Tuning for Multilingual Prompt Injection Defense in Indian Languages**
-> Aditya Gujar, Aditya Shukla — Vellore Institute of Technology
+> Aditya Gujar, Aditya Shukla, Arushi Tiwari, Neelu Khare — Vellore Institute of Technology
 
 MultiStruQ defends instruction-tuned LLMs against prompt injection written in English, five Indic languages
 (Hindi, Bengali, Tamil, Marathi, Telugu), romanized Hinglish and cross-lingual mixtures. It combines a fixed
@@ -11,33 +11,29 @@ MultiStruQ defends instruction-tuned LLMs against prompt injection written in En
 16 GB GPU). The paper's central question is how much of the protection comes from the format and how much
 from the training.
 
-> **Status: work in progress.** The numbers below are from the first extended runs and are **not final**.
-> Retraining with an improved recipe and a sanitizing front end is under way (see [Status](#status)).
+> **Status: final runs done, paper in revision for arXiv** (see [Status](#status)).
 
-## Results (first extended runs, original training recipe)
+## Results
 
-Attack success rate (ASR, %) on 400 held-out multilingual injection samples per model, substring criterion,
-all conditions with the same 50-token greedy generation:
+Attack success rate (ASR, %), substring criterion, 50-token greedy generation, 400 samples per model on each of
+two corpora: the **template** corpus (new passages and instructions, attacks from the training templates) and the
+**unseen-attack** corpus (134 newly written attacks, new target `Jackpot!`, no 5-word overlap with training).
 
-| Model | No defense | Format only | MultiStruQ |
-|---|---:|---:|---:|
-| Qwen2.5-7B-Instruct | 37.75 | 61.25 | 2.25 |
-| Llama-3.1-8B-Instruct | 29.00 | 23.00 | 7.50 |
-| Mistral-7B-Instruct-v0.3 | 22.25 | 16.25 | 13.50 |
-| **Pooled (n = 1,200)** | 29.67 | 33.50 | **7.75** |
+| Model | No defense | Format only | MultiStruQ | No defense (unseen) | MultiStruQ (unseen) |
+|---|---:|---:|---:|---:|---:|
+| Qwen2.5-7B-Instruct | 37.75 | 61.25 | 0.00 | 43.75 | 0.75 |
+| Llama-3.1-8B-Instruct | 29.00 | 23.00 | 0.00 | 33.25 | 0.00 |
+| Mistral-7B-Instruct-v0.3 | 22.25 | 16.25 | 0.00 | 27.75 | 1.00 |
+| **Pooled (n = 1,200)** | 29.67 | 33.50 | **0.00** | 34.92 | **0.58** |
 
-What these runs show, and what they do not:
-
-- **Training is what protects; the format alone is unreliable.** Format only raises ASR on Qwen
-  (37.75 to 61.25) and lowers it on Llama and Mistral.
-- **A matched generation budget matters.** An earlier draft gave the Qwen and Mistral baselines 128 tokens
-  instead of 50, which inflated their baselines (54.25 and 34.50).
-- **Schema forgery breaks the trained model.** If untrusted data contains forged `### Response:` and
-  `### Instruction:` headers, MultiStruQ's pooled ASR is 80.08% (format only: 74.83%).
-- **The original recipe has a defect.** It trains on the whole sequence, including the injected text, and the
-  adapters emit `Hacked!` on 4–9% of attack-free inputs. The `improved` recipe (response-only loss, EOS
-  token, 256 tokens) targets this.
-- **Training-free prompt defenses are strong.** A sandwich prompt reaches 17.83% pooled ASR with no training.
+- **Training is what protects; the format alone is unreliable.** Format only raises pooled ASR and lifts Qwen
+  from 37.75 to 61.25.
+- **The defense generalizes** to new wording, new attack families and a new target (0.58% pooled).
+- **The loss must exclude the injected text.** The original full-sequence recipe leaves 7.75% ASR, emits
+  `Hacked!` on 4–9% of clean inputs and collapses under schema forgery (80.08%); response-only loss fixes all three.
+- **Forged schema headers are the remaining weakness:** 8.92% on template attacks, 26.33% on unseen ones, mostly
+  English. Stripping `#` lines from untrusted data (the sanitizer) brings the template case to 0.00%.
+- **No measurable utility cost:** ROUGE-L 50–52 for the adapters, 0% target emission on clean inputs.
 
 Full tables, hijack rates and utility are produced by `analysis/summarize_extended.py` from the result files
 in `experiments/<model>/results/extended/`.
@@ -46,11 +42,12 @@ in `experiments/<model>/results/extended/`.
 
 | Item | State |
 |---|---|
-| Original-recipe adapters, 3 models, all conditions | done (results in `experiments/*/results/extended/`) |
-| `improved`-recipe adapters (one GPU, 1,125 steps) | **to run**: 3 training runs, about 6–8 h each |
-| Evaluation of improved adapters + sanitizer conditions | **to run**: 3 evaluation runs, about 1.5 h each |
-| Held-out-language run (Llama, Tamil and Telugu removed) | optional |
-| Paper update, then arXiv | after the runs above |
+| Original-recipe adapters, 3 models, all conditions | done (now the full-sequence ablation) |
+| `improved`-recipe adapters (one GPU, 1,125 steps) | done |
+| Evaluation of improved adapters + sanitizer conditions | done |
+| Unseen-attack evaluation (`RUN_MODE = "ood"`) | done |
+| Sanitized forgery on unseen attacks (`RUN_MODE = "ood_sanitized"`) | optional, about 15 min per model |
+| Paper update, then arXiv | in progress |
 
 ## Working on this branch
 
@@ -147,7 +144,7 @@ testable.
 ```bibtex
 @misc{gujar2026multistruq,
   title  = {Structured Formatting Is Not Enough: Adversarial Fine-Tuning for Multilingual Prompt Injection Defense in Indian Languages},
-  author = {Gujar, Aditya and Shukla, Aditya},
+  author = {Gujar, Aditya and Shukla, Aditya and Tiwari, Arushi and Khare, Neelu},
   year   = {2026},
   note   = {Preprint}
 }
