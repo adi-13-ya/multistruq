@@ -79,6 +79,20 @@ LANGS = [
 ]
 LANG_LABEL = {f: lab for _, f, lab in LANGS}
 
+# Language groups for the per-language analysis: (macro key, file languages, label)
+GROUPS = [
+    ("english", ["english"], "English"),
+    ("romanized", ["hinglish", "cultural"], "Romanized Hinglish"),
+    ("native", ["hindi_native", "bengali", "tamil", "marathi", "telugu"], "Native-script Indic"),
+    ("hindi", ["hindi_native"], "\\quad Hindi"),
+    ("otherindic", ["bengali", "tamil", "marathi", "telugu"], "\\quad Bengali, Tamil, Marathi, Telugu"),
+    ("crosslingual", ["cross_lingual"], "Cross-lingual"),
+]
+GROUP_CONDS = ["baseline", "chat", "sf", "ms", "forgeryms", "oodbaseline", "oodsf", "oodms", "oodforgeryms"]
+# Conditions whose per-language ASR is compared with tokenizer fertility (stock-model conditions)
+FERTILITY_CONDS = ["baseline", "chat", "sf", "oodbaseline", "oodsf"]
+FERTILITY_FILE = os.path.join(REPO, "analysis", "tokenizer_fertility_extended.json")
+
 
 def wilson(k, n, z=1.959964):
     if n == 0:
@@ -91,6 +105,30 @@ def wilson(k, n, z=1.959964):
 
 def pct(k, n):
     return 100 * k / n if n else 0.0
+
+
+def ranks(xs):
+    """Ranks starting at 1, ties get their average rank."""
+    order = sorted(range(len(xs)), key=lambda i: xs[i])
+    r = [0.0] * len(xs)
+    i = 0
+    while i < len(order):
+        j = i
+        while j + 1 < len(order) and xs[order[j + 1]] == xs[order[i]]:
+            j += 1
+        for k in range(i, j + 1):
+            r[order[k]] = (i + j) / 2 + 1
+        i = j + 1
+    return r
+
+
+def spearman(xs, ys):
+    rx, ry = ranks(xs), ranks(ys)
+    mx, my = sum(rx) / len(rx), sum(ry) / len(ry)
+    cov = sum((a - mx) * (b - my) for a, b in zip(rx, ry))
+    sx = math.sqrt(sum((a - mx) ** 2 for a in rx))
+    sy = math.sqrt(sum((b - my) ** 2 for b in ry))
+    return cov / (sx * sy) if sx and sy else 0.0
 
 
 def f2(x):
@@ -158,6 +196,7 @@ def load_all(main, alt):
                                         f"{stem}_holdout-*_multistruq_results_extended.json")):
             tag = os.path.basename(p)[len(stem) + 1:].split("_multistruq_")[0]
             data["holdout"].setdefault(mkey, {})[tag] = load_json(p)
+    data["fertility"] = load_json(FERTILITY_FILE) if os.path.exists(FERTILITY_FILE) else None
     return data
 
 
@@ -246,6 +285,51 @@ def compute(data):
                     R[f"lang-{lkey}-{ckey}-hr"] = f2(pct(hij, tot))
                 S["per_language"].setdefault(lfile, {})[ckey] = {"n": tot, "succeeded": succ, "asr": pct(succ, tot),
                                                                  "hijack_rate": pct(hij, tot) if hr_ok else None}
+
+    # language groups (pooled over complete models): script, romanization, resource level
+    for gkey, files, _ in GROUPS:
+        for ckey in GROUP_CONDS:
+            tot = succ = 0
+            ok = bool(complete)
+            for mkey in complete:
+                res = (conds[mkey].get(ckey) or {}).get("results", {})
+                if not all(l in res for l in files):
+                    ok = False
+                    break
+                tot += sum(res[l]["total"] for l in files)
+                succ += sum(res[l]["succeeded"] for l in files)
+            if ok:
+                S.setdefault("per_group", {}).setdefault(gkey, {})[ckey] = put(f"grp-{gkey}-{ckey}", tot, succ, None)
+
+    # tokenizer fertility (analysis/tokenizer_fertility.py) against per-language ASR of the stock models
+    fert = data.get("fertility")
+    if fert:
+        for lkey, lfile, _ in LANGS:
+            for mkey, v in fert["per_language"].get(lfile, {}).items():
+                R[f"tpw-{mkey}-{lkey}"] = f"{v['tokens_per_word']:.1f}"
+                R[f"tpc-{mkey}-{lkey}"] = f"{v['tokens_per_char']:.2f}"
+        for mkey in complete:
+            en = fert["per_language"]["english"][mkey]["tokens_per_word"]
+            for lkey, lfile, _ in LANGS:
+                R[f"tpwratio-{mkey}-{lkey}"] = f"{fert['per_language'][lfile][mkey]['tokens_per_word'] / en:.1f}"
+        rho = {}
+        for ckey in FERTILITY_CONDS:
+            xs_all, ys_all = [], []
+            for mkey in complete:
+                res = (conds[mkey].get(ckey) or {}).get("results", {})
+                if not all(l in res for _, l, _ in LANGS):
+                    break
+                xs = [fert["per_language"][l][mkey]["tokens_per_word"] for _, l, _ in LANGS]
+                ys = [pct(res[l]["succeeded"], res[l]["total"]) for _, l, _ in LANGS]
+                rho.setdefault(ckey, {})[mkey] = spearman(xs, ys)
+                R[f"rho-{mkey}-{ckey}"] = f2(rho[ckey][mkey])
+                xs_all += xs
+                ys_all += ys
+            else:
+                rho.setdefault(ckey, {})["pooled"] = spearman(xs_all, ys_all)
+                R[f"rho-pooled-{ckey}"] = f2(rho[ckey]["pooled"])
+                R[f"rho-pooled-{ckey}-n"] = str(len(xs_all))
+        S["fertility"] = {"tokenizers": fert["tokenizers"], "per_language": fert["per_language"], "spearman": rho}
 
     # per attack type (only once the extended notebooks have recorded it); the unseen-attack set has its own families
     for ckey, slot in [(c, "per_attack_type") for c, _, _ in CORE] + [(c, "per_attack_type_ood") for c, _ in OOD]:
@@ -515,6 +599,51 @@ def tab_tokens(data, out):
     write(out, "tab_tokens_extended.tex", "\n".join(rows) + "\n")
 
 
+def tab_fertility(S, out):
+    """Tokens per word of the attack text per tokenizer, next to pooled no-defense ASR on both corpora."""
+    fert, per = S.get("fertility"), S["per_language"]
+    if not fert or not all("baseline" in per.get(l, {}) and "oodbaseline" in per.get(l, {}) for _, l, _ in LANGS):
+        return
+    models = S["complete_models"]
+    order = sorted((l for _, l, _ in LANGS), key=lambda l: sum(fert["per_language"][l][m]["tokens_per_word"]
+                                                               for m in models))
+    rows = ["\\begin{tabular}{@{}l" + "r" * len(models) + "rr@{}}", "\\toprule",
+            f" & \\multicolumn{{{len(models)}}}{{c}}{{Tokens per word}} & \\multicolumn{{2}}{{c}}{{No-defense ASR (\\%)}} \\\\",
+            f"\\cmidrule(lr){{2-{1 + len(models)}}} \\cmidrule(lr){{{2 + len(models)}-{3 + len(models)}}}",
+            "Category & " + " & ".join(SHORT[m].split("-")[0] for m in models) + " & Template & Unseen \\\\", "\\midrule"]
+    for l in order:
+        vals = " & ".join(f"{fert['per_language'][l][m]['tokens_per_word']:.1f}" for m in models)
+        rows.append(f"{LANG_LABEL[l]} & {vals} & {f2(per[l]['baseline']['asr'])} & {f2(per[l]['oodbaseline']['asr'])} \\\\")
+    rho = fert["spearman"]
+    if all(c in rho and "pooled" in rho[c] for c in ("baseline", "oodbaseline")):
+        rows += ["\\midrule",
+                 f"Spearman $\\rho$ (per model) & \\multicolumn{{{len(models)}}}{{c}}{{}} & "
+                 f"{f2(rho['baseline']['pooled'])} & {f2(rho['oodbaseline']['pooled'])} \\\\"]
+    rows += ["\\bottomrule", "\\end{tabular}"]
+    write(out, "tab_fertility_extended.tex", "\n".join(rows) + "\n")
+
+
+def tab_groups(S, out):
+    """Pooled ASR with 95% Wilson intervals for language groups, on both corpora."""
+    grp = S.get("per_group", {})
+    cols = [("baseline", "No defense"), ("sf", "Format only"), ("oodbaseline", "No defense"),
+            ("oodms", "MultiStruQ"), ("oodforgeryms", "+ forged")]
+    if not all(all(c in grp.get(g, {}) for c, _ in cols) for g, _, _ in GROUPS):
+        return
+    rows = ["\\begin{tabular}{@{}lr" + "l" * len(cols) + "@{}}", "\\toprule",
+            " & & \\multicolumn{2}{c}{Template corpus} & \\multicolumn{3}{c}{Unseen-attack corpus} \\\\",
+            "\\cmidrule(lr){3-4} \\cmidrule(lr){5-7}",
+            "Group & $n$ & " + " & ".join(lab for _, lab in cols) + " \\\\", "\\midrule"]
+    for g, _, lab in GROUPS:
+        cells = []
+        for c, _ in cols:
+            st = grp[g][c]
+            cells.append(f"{f2(st['asr'])} {{\\scriptsize[{st['ci95'][0]:.1f}, {st['ci95'][1]:.1f}]}}")
+        rows.append(f"{lab} & {grp[g]['baseline']['n']} & " + " & ".join(cells) + " \\\\")
+    rows += ["\\bottomrule", "\\end{tabular}"]
+    write(out, "tab_groups_extended.tex", "\n".join(rows) + "\n")
+
+
 # ---------------------------------------------------------------------------
 # Figures (static, print-bound: validated 3-slot categorical palette + hatching
 # for grayscale, direct value labels as contrast relief)
@@ -653,6 +782,8 @@ def main():
     tab_oodtype(S, args.out)
     tab_utility(data, args.out)
     tab_tokens(data, args.out)
+    tab_fertility(S, args.out)
+    tab_groups(S, args.out)
     figures(S, data, args.out)
     with open(os.path.join(args.out, "summary_extended.json"), "w") as f:
         json.dump({"stats": S, "numbers": R}, f, indent=2)

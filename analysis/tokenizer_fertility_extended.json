@@ -1,0 +1,240 @@
+{
+  "corpora": [
+    "multilingual_eval_dataset_v3.json",
+    "multilingual_eval_dataset_ood.json"
+  ],
+  "n_texts": {
+    "hindi_native": 50,
+    "marathi": 23,
+    "english": 74,
+    "bengali": 30,
+    "hinglish": 58,
+    "telugu": 18,
+    "cross_lingual": 37,
+    "cultural": 39,
+    "tamil": 23
+  },
+  "tokenizers": {
+    "qwen": {
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "tokenizer_source": "Qwen/Qwen2.5-7B-Instruct"
+    },
+    "llama": {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "tokenizer_source": "unsloth/Meta-Llama-3.1-8B-Instruct"
+    },
+    "mistral": {
+      "model": "mistralai/Mistral-7B-Instruct-v0.3",
+      "tokenizer_source": "mistralai/Mistral-7B-Instruct-v0.3"
+    }
+  },
+  "per_language": {
+    "hindi_native": {
+      "qwen": {
+        "tokens": 2430,
+        "chars": 2367,
+        "words": 524,
+        "tokens_per_char": 1.026615969581749,
+        "tokens_per_word": 4.637404580152672
+      },
+      "llama": {
+        "tokens": 1406,
+        "chars": 2367,
+        "words": 524,
+        "tokens_per_char": 0.5940008449514153,
+        "tokens_per_word": 2.683206106870229
+      },
+      "mistral": {
+        "tokens": 2703,
+        "chars": 2367,
+        "words": 524,
+        "tokens_per_char": 1.1419518377693283,
+        "tokens_per_word": 5.158396946564886
+      }
+    },
+    "marathi": {
+      "qwen": {
+        "tokens": 969,
+        "chars": 962,
+        "words": 182,
+        "tokens_per_char": 1.0072765072765073,
+        "tokens_per_word": 5.324175824175824
+      },
+      "llama": {
+        "tokens": 600,
+        "chars": 962,
+        "words": 182,
+        "tokens_per_char": 0.6237006237006237,
+        "tokens_per_word": 3.2967032967032965
+      },
+      "mistral": {
+        "tokens": 1040,
+        "chars": 962,
+        "words": 182,
+        "tokens_per_char": 1.0810810810810811,
+        "tokens_per_word": 5.714285714285714
+      }
+    },
+    "english": {
+      "qwen": {
+        "tokens": 1135,
+        "chars": 4086,
+        "words": 754,
+        "tokens_per_char": 0.2777777777777778,
+        "tokens_per_word": 1.5053050397877985
+      },
+      "llama": {
+        "tokens": 1124,
+        "chars": 4086,
+        "words": 754,
+        "tokens_per_char": 0.27508565834557025,
+        "tokens_per_word": 1.490716180371353
+      },
+      "mistral": {
+        "tokens": 1230,
+        "chars": 4086,
+        "words": 754,
+        "tokens_per_char": 0.3010279001468429,
+        "tokens_per_word": 1.6312997347480107
+      }
+    },
+    "bengali": {
+      "qwen": {
+        "tokens": 1430,
+        "chars": 1293,
+        "words": 241,
+        "tokens_per_char": 1.105955143078113,
+        "tokens_per_word": 5.933609958506224
+      },
+      "llama": {
+        "tokens": 1661,
+        "chars": 1293,
+        "words": 241,
+        "tokens_per_char": 1.2846094354215003,
+        "tokens_per_word": 6.8921161825726145
+      },
+      "mistral": {
+        "tokens": 1503,
+        "chars": 1293,
+        "words": 241,
+        "tokens_per_char": 1.1624129930394431,
+        "tokens_per_word": 6.236514522821577
+      }
+    },
+    "hinglish": {
+      "qwen": {
+        "tokens": 1210,
+        "chars": 2950,
+        "words": 616,
+        "tokens_per_char": 0.4101694915254237,
+        "tokens_per_word": 1.9642857142857142
+      },
+      "llama": {
+        "tokens": 1190,
+        "chars": 2950,
+        "words": 616,
+        "tokens_per_char": 0.4033898305084746,
+        "tokens_per_word": 1.9318181818181819
+      },
+      "mistral": {
+        "tokens": 1305,
+        "chars": 2950,
+        "words": 616,
+        "tokens_per_char": 0.4423728813559322,
+        "tokens_per_word": 2.1185064935064934
+      }
+    },
+    "telugu": {
+      "qwen": {
+        "tokens": 1341,
+        "chars": 887,
+        "words": 135,
+        "tokens_per_char": 1.511837655016911,
+        "tokens_per_word": 9.933333333333334
+      },
+      "llama": {
+        "tokens": 1527,
+        "chars": 887,
+        "words": 135,
+        "tokens_per_char": 1.721533258173619,
+        "tokens_per_word": 11.311111111111112
+      },
+      "mistral": {
+        "tokens": 1557,
+        "chars": 887,
+        "words": 135,
+        "tokens_per_char": 1.7553551296505072,
+        "tokens_per_word": 11.533333333333333
+      }
+    },
+    "cross_lingual": {
+      "qwen": {
+        "tokens": 1063,
+        "chars": 1594,
+        "words": 300,
+        "tokens_per_char": 0.6668757841907151,
+        "tokens_per_word": 3.5433333333333334
+      },
+      "llama": {
+        "tokens": 906,
+        "chars": 1594,
+        "words": 300,
+        "tokens_per_char": 0.5683814303638645,
+        "tokens_per_word": 3.02
+      },
+      "mistral": {
+        "tokens": 1168,
+        "chars": 1594,
+        "words": 300,
+        "tokens_per_char": 0.7327478042659975,
+        "tokens_per_word": 3.8933333333333335
+      }
+    },
+    "cultural": {
+      "qwen": {
+        "tokens": 755,
+        "chars": 1876,
+        "words": 388,
+        "tokens_per_char": 0.40245202558635396,
+        "tokens_per_word": 1.9458762886597938
+      },
+      "llama": {
+        "tokens": 753,
+        "chars": 1876,
+        "words": 388,
+        "tokens_per_char": 0.4013859275053305,
+        "tokens_per_word": 1.940721649484536
+      },
+      "mistral": {
+        "tokens": 827,
+        "chars": 1876,
+        "words": 388,
+        "tokens_per_char": 0.4408315565031983,
+        "tokens_per_word": 2.131443298969072
+      }
+    },
+    "tamil": {
+      "qwen": {
+        "tokens": 1463,
+        "chars": 1313,
+        "words": 174,
+        "tokens_per_char": 1.1142421934501143,
+        "tokens_per_word": 8.408045977011493
+      },
+      "llama": {
+        "tokens": 1770,
+        "chars": 1313,
+        "words": 174,
+        "tokens_per_char": 1.348057882711348,
+        "tokens_per_word": 10.172413793103448
+      },
+      "mistral": {
+        "tokens": 1601,
+        "chars": 1313,
+        "words": 174,
+        "tokens_per_char": 1.2193450114242192,
+        "tokens_per_word": 9.201149425287356
+      }
+    }
+  }
+}

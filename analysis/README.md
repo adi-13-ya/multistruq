@@ -26,3 +26,24 @@ extended evaluation notebooks have recorded per-attack-type counts. Macro keys f
 Unseen-attack results (`RUN_MODE = "ood"`) use the conditions `oodbaseline | oodsf | oodsandwich | oodms | oodforgeryms`
 (e.g. `\R{pooled-oodms-asr}`, `\R{pooled-ood-dabs}`) and add `tab_ood_extended.tex` (per model) and
 `tab_oodtype_extended.tex` (per attack family, keys `oodtype-<family>-<condition>-asr`).
+
+## Language groups and tokenizer fertility
+
+`tokenizer_fertility.py` tokenizes every distinct attack text of the two evaluation corpora with each
+model's tokenizer (only the tokenizer files are downloaded) and writes `tokenizer_fertility_extended.json`:
+tokens per character and tokens per word, per language category. Llama-3.1 is gated, so without a
+Hugging Face token the identical tokenizer of an ungated mirror is used; the file records the source.
+
+```bash
+pip install tokenizers huggingface_hub
+python analysis/tokenizer_fertility.py
+```
+
+`summarize_extended.py` reads that file when it exists and adds:
+
+- `tab_fertility_extended.tex`: tokens per word per model next to pooled no-defense ASR, with the Spearman
+  correlation between each model's fertility and its own per-category ASR (keys `tpw-<model>-<lang>`,
+  `tpwratio-<model>-<lang>` relative to English, `rho-<model|pooled>-<condition>`).
+- `tab_groups_extended.tex`: pooled ASR with Wilson intervals for language groups (English, romanized
+  Hinglish, native-script Indic split into Hindi and the other four, cross-lingual), keys
+  `grp-<group>-<condition>-asr` and `-ci`.
