@@ -2,7 +2,7 @@
 
 Code, data and evaluation records for the paper
 
-> **Structured Formatting Is Not Enough: Adversarial Fine-Tuning for Multilingual Prompt Injection Defense in Indian Languages**
+> **MultiStruQ: Adversarial Fine-Tuning Against Multilingual Prompt Injection in Indian Languages**
 > Aditya Gujar, Aditya Shukla, Arushi Tiwari, Neelu Khare — Vellore Institute of Technology
 
 MultiStruQ defends instruction-tuned LLMs against prompt injection written in English, five Indic languages
@@ -11,7 +11,7 @@ MultiStruQ defends instruction-tuned LLMs against prompt injection written in En
 16 GB GPU). The paper's central question is how much of the protection comes from the format and how much
 from the training.
 
-> **Status: final runs done, paper in revision for arXiv** (see [Status](#status)).
+> **Status: final runs done, manuscript being prepared for journal submission (ACM TALLIP)** (see [Status](#status)).
 
 ## Results
 
@@ -47,7 +47,9 @@ in `experiments/<model>/results/extended/`.
 | Evaluation of improved adapters + sanitizer conditions | done |
 | Unseen-attack evaluation (`RUN_MODE = "ood"`) | done |
 | Sanitized forgery on unseen attacks (`RUN_MODE = "ood_sanitized"`) | optional, about 15 min per model |
-| Paper update, then arXiv | in progress |
+| Language-group and tokenizer-fertility analysis | done |
+| Native-speaker check of the attack texts (`analysis/fluency_check.py`) | sheets ready, ratings pending |
+| Journal submission (ACM TALLIP) | in preparation |
 
 ## Working on this branch
 
@@ -143,7 +145,7 @@ testable.
 
 ```bibtex
 @misc{gujar2026multistruq,
-  title  = {Structured Formatting Is Not Enough: Adversarial Fine-Tuning for Multilingual Prompt Injection Defense in Indian Languages},
+  title  = {MultiStruQ: Adversarial Fine-Tuning Against Multilingual Prompt Injection in Indian Languages},
   author = {Gujar, Aditya and Shukla, Aditya and Tiwari, Arushi and Khare, Neelu},
   year   = {2026},
   note   = {Preprint}

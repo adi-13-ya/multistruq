@@ -19,7 +19,7 @@ authors:
     affiliation: Vellore Institute of Technology
 preferred-citation:
   type: article
-  title: "Structured Formatting Is Not Enough: Adversarial Fine-Tuning for Multilingual Prompt Injection Defense in Indian Languages"
+  title: "MultiStruQ: Adversarial Fine-Tuning Against Multilingual Prompt Injection in Indian Languages"
   authors:
     - family-names: Gujar
       given-names: Aditya

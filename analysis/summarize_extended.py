@@ -92,6 +92,9 @@ GROUP_CONDS = ["baseline", "chat", "sf", "ms", "forgeryms", "oodbaseline", "oods
 # Conditions whose per-language ASR is compared with tokenizer fertility (stock-model conditions)
 FERTILITY_CONDS = ["baseline", "chat", "sf", "oodbaseline", "oodsf"]
 FERTILITY_FILE = os.path.join(REPO, "analysis", "tokenizer_fertility_extended.json")
+FLUENCY_FILE = os.path.join(REPO, "analysis", "fluency_check_extended.json")
+FLUENCY_SHEETS = [("hindi", "Hindi"), ("bengali", "Bengali"), ("marathi", "Marathi"), ("tamil", "Tamil"),
+                  ("telugu", "Telugu"), ("hinglish", "Hinglish (incl. cultural)"), ("crosslingual", "Cross-lingual")]
 
 
 def wilson(k, n, z=1.959964):
@@ -197,6 +200,7 @@ def load_all(main, alt):
             tag = os.path.basename(p)[len(stem) + 1:].split("_multistruq_")[0]
             data["holdout"].setdefault(mkey, {})[tag] = load_json(p)
     data["fertility"] = load_json(FERTILITY_FILE) if os.path.exists(FERTILITY_FILE) else None
+    data["fluency"] = load_json(FLUENCY_FILE) if os.path.exists(FLUENCY_FILE) else None
     return data
 
 
@@ -330,6 +334,23 @@ def compute(data):
                 R[f"rho-pooled-{ckey}"] = f2(rho[ckey]["pooled"])
                 R[f"rho-pooled-{ckey}-n"] = str(len(xs_all))
         S["fertility"] = {"tokenizers": fert["tokenizers"], "per_language": fert["per_language"], "spearman": rho}
+
+    # native-speaker ratings of the attack texts (analysis/fluency_check.py score)
+    flu = data.get("fluency")
+    if flu and flu.get("overall"):
+        o = flu["overall"]
+        R["fluency-mean"] = f2(o["fluency_mean"])
+        R["fluency-natural"] = f"{o['pct_natural']:.1f}"
+        R["fluency-n"] = str(o["n_texts"])
+        if o.get("intent_rate") is not None:
+            R["fluency-intent"] = f"{o['intent_rate']:.1f}"
+        kappas = [v["kappa_quadratic"] for v in flu["per_sheet"].values() if v["kappa_quadratic"] is not None]
+        if kappas:
+            R["fluency-kappa-min"], R["fluency-kappa-max"] = f2(min(kappas)), f2(max(kappas))
+        for sheet, v in flu["per_sheet"].items():
+            R[f"fluency-{sheet}-mean"] = f2(v["fluency_mean"])
+            R[f"fluency-{sheet}-natural"] = f"{v['pct_natural']:.1f}"
+        S["fluency"] = flu
 
     # per attack type (only once the extended notebooks have recorded it); the unseen-attack set has its own families
     for ckey, slot in [(c, "per_attack_type") for c, _, _ in CORE] + [(c, "per_attack_type_ood") for c, _ in OOD]:
@@ -623,6 +644,23 @@ def tab_fertility(S, out):
     write(out, "tab_fertility_extended.tex", "\n".join(rows) + "\n")
 
 
+def tab_fluency(S, out):
+    """Native-speaker fluency ratings of the attack texts, per sheet."""
+    flu = S.get("fluency")
+    if not flu or not flu.get("per_sheet"):
+        return
+    rows = ["\\begin{tabular}{@{}lrrrrr@{}}", "\\toprule",
+            "Language & Texts & Mean (1--3) & Natural (\\%) & Agreement (\\%) & $\\kappa_w$ \\\\", "\\midrule"]
+    for sheet, lab in FLUENCY_SHEETS:
+        v = flu["per_sheet"].get(sheet)
+        if v:
+            kappa = "--" if v["kappa_quadratic"] is None else f2(v["kappa_quadratic"])
+            rows.append(f"{lab} & {v['n_texts']} & {f2(v['fluency_mean'])} & {v['pct_natural']:.1f} & "
+                        f"{v['exact_agreement']:.1f} & {kappa} \\\\")
+    rows += ["\\bottomrule", "\\end{tabular}"]
+    write(out, "tab_fluency_extended.tex", "\n".join(rows) + "\n")
+
+
 def tab_groups(S, out):
     """Pooled ASR with 95% Wilson intervals for language groups, on both corpora."""
     grp = S.get("per_group", {})
@@ -784,6 +822,7 @@ def main():
     tab_tokens(data, args.out)
     tab_fertility(S, args.out)
     tab_groups(S, args.out)
+    tab_fluency(S, args.out)
     figures(S, data, args.out)
     with open(os.path.join(args.out, "summary_extended.json"), "w") as f:
         json.dump({"stats": S, "numbers": R}, f, indent=2)

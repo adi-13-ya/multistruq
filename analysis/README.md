@@ -47,3 +47,17 @@ python analysis/tokenizer_fertility.py
 - `tab_groups_extended.tex`: pooled ASR with Wilson intervals for language groups (English, romanized
   Hinglish, native-script Indic split into Hindi and the other four, cross-lingual), keys
   `grp-<group>-<condition>-asr` and `-ci`.
+
+## Native-speaker check
+
+`fluency_check.py make` writes rating sheets to `datasets/fluency_check/` (all distinct native-script
+attacks, 40 sampled romanized and 20 cross-lingual ones). Two native speakers per language fill
+`fluency_rater1/2` (1–3) and `intent_rater1/2` (0/1) independently. Then:
+
+```bash
+python analysis/fluency_check.py score             # -> analysis/fluency_check_extended.json
+python analysis/summarize_extended.py --out manuscripts/generated
+```
+
+adds `tab_fluency_extended.tex` and the `fluency-*` keys; the paper's native-speaker subsection
+appears only once these exist.
