@@ -1,0 +1,74 @@
+{
+  "scale": "fluency 1-3, intent 0/1, two raters",
+  "per_sheet": {
+    "hindi": {
+      "n_texts": 50,
+      "fluency_mean": 2.83,
+      "pct_natural": 83.0,
+      "pct_wrong": 0.0,
+      "intent_rate": 100.0,
+      "exact_agreement": 94.0,
+      "kappa_quadratic": 0.7875354107648725
+    },
+    "bengali": {
+      "n_texts": 30,
+      "fluency_mean": 2.65,
+      "pct_natural": 71.66666666666667,
+      "pct_wrong": 6.666666666666667,
+      "intent_rate": 98.33333333333333,
+      "exact_agreement": 76.66666666666667,
+      "kappa_quadratic": 0.6884272997032641
+    },
+    "marathi": {
+      "n_texts": 23,
+      "fluency_mean": 2.8260869565217392,
+      "pct_natural": 82.6086956521739,
+      "pct_wrong": 0.0,
+      "intent_rate": 97.82608695652173,
+      "exact_agreement": 91.30434782608695,
+      "kappa_quadratic": 0.7012987012987013
+    },
+    "tamil": {
+      "n_texts": 23,
+      "fluency_mean": 2.608695652173913,
+      "pct_natural": 60.869565217391305,
+      "pct_wrong": 0.0,
+      "intent_rate": 100.0,
+      "exact_agreement": 82.6086956521739,
+      "kappa_quadratic": 0.6377952755905512
+    },
+    "telugu": {
+      "n_texts": 18,
+      "fluency_mean": 2.5,
+      "pct_natural": 55.55555555555556,
+      "pct_wrong": 5.555555555555555,
+      "intent_rate": 100.0,
+      "exact_agreement": 66.66666666666667,
+      "kappa_quadratic": 0.5384615384615384
+    },
+    "hinglish": {
+      "n_texts": 40,
+      "fluency_mean": 2.9875,
+      "pct_natural": 98.75,
+      "pct_wrong": 0.0,
+      "intent_rate": 92.5,
+      "exact_agreement": 97.5,
+      "kappa_quadratic": 0.0
+    },
+    "crosslingual": {
+      "n_texts": 20,
+      "fluency_mean": 2.8,
+      "pct_natural": 82.5,
+      "pct_wrong": 2.5,
+      "intent_rate": 95.0,
+      "exact_agreement": 80.0,
+      "kappa_quadratic": 0.5454545454545454
+    }
+  },
+  "overall": {
+    "n_texts": 204,
+    "fluency_mean": 2.7769607843137254,
+    "pct_natural": 79.41176470588235,
+    "intent_rate": 97.54901960784314
+  }
+}

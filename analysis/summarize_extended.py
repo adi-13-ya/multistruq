@@ -92,6 +92,7 @@ GROUP_CONDS = ["baseline", "chat", "sf", "ms", "forgeryms", "oodbaseline", "oods
 # Conditions whose per-language ASR is compared with tokenizer fertility (stock-model conditions)
 FERTILITY_CONDS = ["baseline", "chat", "sf", "oodbaseline", "oodsf"]
 FERTILITY_FILE = os.path.join(REPO, "analysis", "tokenizer_fertility_extended.json")
+FLUENCY_CEILING = 95.0  # % natural at or above which kappa is not interpretable
 FLUENCY_FILE = os.path.join(REPO, "analysis", "fluency_check_extended.json")
 FLUENCY_SHEETS = [("hindi", "Hindi"), ("bengali", "Bengali"), ("marathi", "Marathi"), ("tamil", "Tamil"),
                   ("telugu", "Telugu"), ("hinglish", "Hinglish (incl. cultural)"), ("crosslingual", "Cross-lingual")]
@@ -344,12 +345,17 @@ def compute(data):
         R["fluency-n"] = str(o["n_texts"])
         if o.get("intent_rate") is not None:
             R["fluency-intent"] = f"{o['intent_rate']:.1f}"
-        kappas = [v["kappa_quadratic"] for v in flu["per_sheet"].values() if v["kappa_quadratic"] is not None]
+        # kappa is uninformative when nearly every rating is the same (ceiling); keep those sheets out of the range
+        kappas = [v["kappa_quadratic"] for v in flu["per_sheet"].values()
+                  if v["kappa_quadratic"] is not None and v["pct_natural"] < FLUENCY_CEILING]
+        R["fluency-ceiling-sheets"] = str(sum(1 for v in flu["per_sheet"].values() if v["pct_natural"] >= FLUENCY_CEILING))
         if kappas:
             R["fluency-kappa-min"], R["fluency-kappa-max"] = f2(min(kappas)), f2(max(kappas))
         for sheet, v in flu["per_sheet"].items():
             R[f"fluency-{sheet}-mean"] = f2(v["fluency_mean"])
             R[f"fluency-{sheet}-natural"] = f"{v['pct_natural']:.1f}"
+            R[f"fluency-{sheet}-agree"] = f"{v['exact_agreement']:.1f}"
+            R[f"fluency-{sheet}-intent"] = f"{v['intent_rate']:.1f}"
         S["fluency"] = flu
 
     # per attack type (only once the extended notebooks have recorded it); the unseen-attack set has its own families
@@ -655,6 +661,8 @@ def tab_fluency(S, out):
         v = flu["per_sheet"].get(sheet)
         if v:
             kappa = "--" if v["kappa_quadratic"] is None else f2(v["kappa_quadratic"])
+            if v["kappa_quadratic"] is not None and v["pct_natural"] >= FLUENCY_CEILING:
+                kappa += "$^\\dagger$"
             rows.append(f"{lab} & {v['n_texts']} & {f2(v['fluency_mean'])} & {v['pct_natural']:.1f} & "
                         f"{v['exact_agreement']:.1f} & {kappa} \\\\")
     rows += ["\\bottomrule", "\\end{tabular}"]

@@ -48,7 +48,7 @@ in `experiments/<model>/results/extended/`.
 | Unseen-attack evaluation (`RUN_MODE = "ood"`) | done |
 | Sanitized forgery on unseen attacks (`RUN_MODE = "ood_sanitized"`) | optional, about 15 min per model |
 | Language-group and tokenizer-fertility analysis | done |
-| Native-speaker check of the attack texts (`analysis/fluency_check.py`) | sheets ready, ratings pending |
+| Native-speaker check of the attack texts (`analysis/fluency_check.py`) | done: 204 texts, 2 raters per language, mean fluency 2.78/3 |
 | Journal submission (ACM TALLIP) | in preparation |
 
 ## Working on this branch
